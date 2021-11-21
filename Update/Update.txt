@@ -1,17 +1,17 @@
 Beta Build53<br />
-+新的推入动画
-+加入ListPanel(表列面板)
-+部分加入控件动画
-
-Beta Build52:
-+新的UI
-+Minecraft主题框改为主题组件
-+物品栏Dock(未正式加入,仅测试)
-
-Beta Build51:
-+加入启动选项
-+修复日期框闪烁的bug
-
-Beta Build50:
-+首个对外发布版本!
-+加入Minecraft主题框
++新的推入动画<br />
++加入ListPanel(表列面板)<br />
++部分加入控件动画<br />
+<br />
+Beta Build52:<br />
++新的UI<br />
++Minecraft主题框改为主题组件<br />
++物品栏Dock(未正式加入,仅测试)<br />
+<br />
+Beta Build51:<br />
++加入启动选项<br />
++修复日期框闪烁的bug<br />
+<br />
+Beta Build50:<br />
++首个对外发布版本!<br />
++加入Minecraft主题框<br />
