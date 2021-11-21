@@ -1,17 +1,17 @@
-Beta Build53<br />
+Beta Build53 2021-11-21<br />
 +新的推入动画<br />
 +加入ListPanel(表列面板)<br />
 +部分加入控件动画<br />
 <br />
-Beta Build52:<br />
+Beta Build52 2021-11-14<br />
 +新的UI<br />
 +Minecraft主题框改为主题组件<br />
 +物品栏Dock(未正式加入,仅测试)<br />
 <br />
-Beta Build51:<br />
+Beta Build51 2021-11-07<br />
 +加入启动选项<br />
 +修复日期框闪烁的bug<br />
 <br />
-Beta Build50:<br />
+Beta Build50 2021-10-30<br />
 +首个对外发布版本!<br />
 +加入Minecraft主题框<br />
