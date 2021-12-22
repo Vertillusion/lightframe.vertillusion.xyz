@@ -1,6 +1,7 @@
-Beta2 Build70 | 2021-12-12<br />
+Beta2 Build75 | 2021-12-22<br />
 +加入便签纸、文本贴纸、时钟<br />
 +新的主题组件,修复bug若干<br />
++(Update1)加入物品栏扩展选项<br />
 <br />
 Beta2 Build54 | 2021-11-21<br />
 +加入ListPanel的进入动画<br />
