@@ -1,0 +1,328 @@
+html, body {
+    min-width: 720px;
+    min-height: 1024px;
+    height: 100%;
+}
+
+body {
+    align-items: center;
+    background: rgb(244, 244, 244);
+    background: linear-gradient(-45deg, rgb(244, 244, 244), rgb(187, 192, 201));
+    font-family: 'Open Sans', sans, serif;
+    justify-content: center;
+    text-align: center;
+}
+
+html::-webkit-scrollbar { /*滚动条整体样式*/
+    width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+
+html::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: rgb(137, 142, 151);
+}
+
+html::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #EDEDED;
+}
+
+.header {
+    align-items: center;
+    background: rgb(244, 244, 244);
+    background: linear-gradient(-45deg, rgb(244, 244, 244), rgb(187, 192, 201));
+    font-family: 'Open Sans', sans, serif;
+    justify-content: center;
+    text-align: center;
+}
+
+.body {
+    align-items: center;
+    background: rgb(244, 244, 244);
+    background: linear-gradient(-45deg, rgb(126, 203, 255), rgb(180, 170, 255));
+    font-family: 'Open Sans', sans, serif;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.footer {
+    width: 100%;
+    align-items: center;
+    background: rgb(244, 244, 244);
+    background: linear-gradient(-45deg, rgb(60, 78, 95), rgb(60, 78, 95));
+    font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    justify-content: center;
+    text-align: center;
+}
+
+#canvas {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    background: #0f0f0f;
+    z-index: -1;
+}
+
+ul li ul {
+    position: relative;
+    min-height: 5%;
+    font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    font-size: 17px;
+    line-height: 4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes scaleDraw { /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+    0% {
+        transform: scale(1); /*开始为原始大小*/
+    }
+
+    25% {
+        transform: scale(1.1); /*放大1.1倍*/
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    /*过渡状态 透明度为0*/
+    40% {
+        opacity: 0;
+    }
+    /*过渡状态 透明度为0*/
+    100% {
+        opacity: 1;
+    }
+    /*结束状态 透明度为1*/
+}
+
+@-webkit-keyframes fade-in { /*针对webkit内核*/
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes move-appear {
+    from {
+        transform: translate(0, -10%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    height: auto;
+    width: 100%;
+    background: rgba(251, 251, 251, 1.00);
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: auto;
+    box-shadow: rgb(40, 40, 40) 0 -5px 30px 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    width: auto;
+    list-style-type: none;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 12%;
+    padding: 0;
+}
+
+.navbar li {
+    float: left;
+    margin-right: 2%;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar li a {
+    display: block;
+    color: rgb(20, 20, 20);
+    text-align: center;
+    padding: 3px;
+    overflow: hidden;
+}
+
+.navbar li a:hover {
+    -webkit-animation: scaleDraw 5s ease-in-out infinite;
+}
+
+.navbar ul li ul {
+    /* 设置二级菜单 */
+    margin-left: -0.2px;
+    background: rgba(251, 251, 251, 0.9);
+    position: relative;
+    display: none; /* 默认隐藏二级菜单的内容 */
+}
+
+.navbar ul li ul li {
+    /* 二级菜单li内容的显示 */
+
+    float: none;
+    text-align: center;
+}
+
+.navbar ul li:hover ul {
+    /* 鼠标选中二级菜单内容时 */
+    animation: fade-in; /*动画名称*/
+    animation-duration: 0.7s; /*动画持续时间*/
+    -webkit-animation: fade-in 0.7s; /*针对webkit内核*/
+    display: block;
+}
+
+.navbar .ri {
+    float: right; /* 使li内容横向浮动，即横向排列  */
+    margin-right: 13.5%; /* 两个li之间的距离*/
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar .ri a {
+    /* 设置链接内容显示的格式*/
+    display: block; /*把链接显示为块元素可使整个链接区域可点击 */
+    color: rgb(20, 20, 20);
+    text-align: center;
+    padding: 3px;
+    overflow: hidden;
+    text-decoration: none; /* 去除下划线 */
+}
+
+.navbar .ri a:hover {
+    /* 鼠标选中时背景变为黑色 */
+    background-color: rgb(152, 159, 226);
+    color: rgb(10, 10, 10);
+    border-radius: 10px;
+}
+
+
+.title {
+    color: #3e3e42;
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    -webkit-transform: translateZ(-1px);
+    transform: translateZ(-1px);
+}
+
+.summary {
+    margin: 5rem auto 3rem;
+}
+
+.downloadButton {
+    text-align: center;
+    line-height: 100%;
+    font: 16px Arial, sans-serif bold;
+    font-size: 22px;
+    text-decoration: none;
+    margin: 3rem auto 2rem;
+    padding: 0.5rem 1.5rem;
+    vertical-align: text-bottom;
+    zoom: 1;
+    outline: none;
+    font-stretch: normal;
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    color: #fefee9;
+    border: 0 solid #2299ff;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: padding-box;
+    background: #3399ff linear-gradient(135deg, #4FAEEF 0%, #8657CE 100%) repeat;
+}
+
+.downloadButton :hover {
+    background: linear-gradient(100deg, #4FAEEF 0%, #A784DA 100%);
+}
+
+.footerText {
+    color: rgba(244, 244, 244, 0.95);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    -webkit-transform: translateZ(-1px);
+    transform: translateZ(-1px);
+}
+
+.updateLogCover {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background: rgba(244, 244, 244, 0.82);
+    border-radius: 30px;
+    box-shadow: 0 0 40px rgb(60, 60, 60);
+    padding: 1.2rem 1rem;
+    margin: auto;
+    width: 80%;
+    min-width: 6rem;
+}
+
+.updateLogCover > div {
+    color: #3e3e42;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    -webkit-transform: translateZ(-1px);
+    transform: translateZ(-1px);
+}
+
+.card {
+    margin-top: 150px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px 20px rgba(0, 0, 0, 0.09);
+    display: inline-block;
+    padding: 30px 35px;
+    -webkit-perspective: 1800px;
+    perspective: 1800px;
+    text-align: left;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    transform: rotateX(0deg) rotateY(0deg);
+    min-width: 595px;
+}
+
+.cardImg {
+    position: relative;
+    height: 100%;
+    width: 720px
+}
