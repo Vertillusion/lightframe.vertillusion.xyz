@@ -1,4 +1,9 @@
-Beta2 Build90 | 2022-1-18<br />
+Beta3 Build105 | 2022-03-05<br />
++新的UI和crash修复<br />
++新的发生器<br />
++在线更新<br />
+<br />
+Beta2 Build90 | 2022-01-18<br />
 +粒子发生器<br />
 +专注空间Beta / 组件分析<br />
 +(U1)使用VertexUI最新草案<br />
