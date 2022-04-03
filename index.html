@@ -9,6 +9,7 @@
 
     <meta charset="UTF-8">
     <title>LightFrame</title>
+
     <style>
         #canvas {
             position: absolute;
@@ -104,7 +105,7 @@
             height: auto; /*高度改为自动高度*/
             width: 100%;
             margin-left: 0;
-            background: rgba(251,251,251,1.00);
+            background: rgba(52,57,66,1.00);
             position: fixed; /*固定在顶部*/
             top: 0px; /*离顶部的距离为0*/
             left:0px;
@@ -134,7 +135,7 @@
                 .top li a {
                     /* 设置链接内容显示的格式*/
                     display: block; /* 把链接显示为块元素可使整个链接区域可点击 */
-                    color: rgb(20,20,20);
+                    color: rgb(251,251,251);
                     text-align: center;
                     padding: 3px;
                     overflow: hidden;
@@ -148,7 +149,7 @@
             .top ul li ul {
                 /* 设置二级菜单 */
                 margin-left: -0.2px;
-                background: rgba(251,251,251,0.9);
+                background: rgba(52,57,66,0.9);
                 position: relative;
                 display: none; /* 默认隐藏二级菜单的内容 */
             }
@@ -178,7 +179,7 @@
                 .top ri a {
                     /* 设置链接内容显示的格式*/
                     display: block; /*把链接显示为块元素可使整个链接区域可点击 */
-                    color: rgb(20,20,20);
+                    color: rgb(251,251,251);
                     text-align: center;
                     padding: 3px;
                     overflow: hidden;
@@ -442,7 +443,7 @@ foottxt a:hover {
      background-origin:padding-box;
      background-clip:padding-box;
      background-color:#3399ff;
-     background: linear-gradient(135deg, #4FAEEF 0%,#8657CE 100%);
+     background: linear-gradient(135deg, RGB(26,188,156) 0%,RGB(156,139,246) 100%);
 }
  
 .dbtn:hover {
@@ -455,9 +456,10 @@ foottxt a:hover {
             width:100%;
             height:100%;
             align-items: center;
-            background: url("img/NewLavenderDesign.png");
+            /*background: url("img/NewLavenderDesign.png");
 background-position:bottom center;
-background-repeat:no-repeat;
+background-repeat:no-repeat;*/
+           background:rgb(42,47,56);
             font-family: 'Open Sans', sans;
             justify-content: center;
             text-align: center;
@@ -483,6 +485,7 @@ background-repeat:no-repeat;
             text-align: center;
         }
 </style>
+<link rel="stylesheet" href="css/style1.css">
 </head>
 <body>
 <section class="area1">
@@ -502,19 +505,25 @@ background-repeat:no-repeat;
      <br />
      <foottxt>©2022 VertillusionStudio·LightFrame</foottxt>
 	<br />
-     <foottxt><a href="https://github.com/EnderMo/lightframe.vertillusion.xyz/blob/main/index.html" target="_blank">改进本页面</a></foottxt>
+     <foottxt><a href="https://github.com/EnderMo/lightframe.vertillusion.xyz/blob/gh-pages/index.html" target="_blank">改进本页面</a></foottxt>
 </section>
     <div class="top">
         <center>
             <ul>
+<nav class="nav">
+  <input type="checkbox" class="nav__cb" id="menu-cb">
+  <div class="nav__content">
+    <ul class="nav__items">
+      <li class="nav__item"> <span class="nav__item-text" onclick="window.location.href = 'https://vertillusion.xyz'"> 主站 </span> </li>
+      <li class="nav__item"> <span class="nav__item-text" onclick="window.location.href = 'https://forum.vertillusion.xyz'"> 论坛 </span> </li>
+      <li class="nav__item"> <span class="nav__item-text" onclick="window.location.href = 'Update/LightFrame.zip'"> 下载 </span> </li>
+ <li class="nav__item"> <span class="nav__item-text" onclick="window.location.href = '#'"> 展示板 </span> </li>
+    </ul>
+  </div>
+  <label class="nav__btn" for="menu-cb"></label>
+</nav>
                 <li><a href="#">轻框 | LightFrame</a></li>
-                <li><a href="#">下载</a></li>
-                <ri><a href="https://afdian.net/@EnderMo">捐助</a></ri>
-                <li>
-                    <a href="#">传送门</a>
-                    <ul>
-                        <li><a href="https://vertillusion.xyz" style="color:RGB(20,20,20);">主站</a></li>
-                    </ul>
+                <ri><a href="https://afdian.net/@EnderMo/plan">捐助</a></ri>
             </ul>
         </center>
     </div>
