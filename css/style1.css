@@ -10,7 +10,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color:rgb(20,20,20);
+  color:rgba(20,20,20,0.0);
   overflow: hidden;
   position: absolute;
   left: 50%;
@@ -157,7 +157,7 @@
   width: 24px;
   height: 3px;
   border-radius: 2px;
-  background: rgb(241,241,241);
+  background: rgb(20,20,20);
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
   -webkit-transition: background-color 0.3s, -webkit-transform 1s cubic-bezier(0.48, 0.43, 0.29, 1.3);
