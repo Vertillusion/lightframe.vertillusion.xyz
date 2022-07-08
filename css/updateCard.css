@@ -1,15 +1,36 @@
 #uCard {
-    /*每个更新卡片的style*/
-    padding: 10px;
-    border: 1px solid #ccc;
+        margin-top: 2%;
+        margin-left: 25%;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        background: rgba(222, 227, 236, 1);
+        border-radius: 10px;
+        box-shadow: 0 0 30px rgb(182, 187, 216, 0.8);
+        width: 50%;
+        border-radius: 10px;
+        padding-bottom: 10px;
 }
 #uCard #Uhead{
     /*每个更新卡片的头部style*/
-    background-color: #ccc;
+    background-color: #00000000;
+    padding-left: 10px;
+    font-size: smaller;
+    font-weight: bold;
+    color: #000000;
+    padding-top: 10px;
+    /*被文字撑宽*/
+
+
+
+
+
+
 
 }
 #uCard #Ubodys{
+    margin:10px;
     /*每个更新卡片的Body的style*/
-    background-color:yellowgreen;
+    
 }
 /*祝好！QWQ*/
