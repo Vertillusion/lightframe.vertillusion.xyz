@@ -1,0 +1,15 @@
+#uCard {
+    /*每个更新卡片的style*/
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+#uCard #Uhead{
+    /*每个更新卡片的头部style*/
+    background-color: #ccc;
+
+}
+#uCard #Ubodys{
+    /*每个更新卡片的Body的style*/
+    background-color:yellowgreen;
+}
+/*祝好！QWQ*/
