@@ -1,580 +1,727 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta name="keywords" content="LightFrame" />
-	<meta name="description" content="LightFrame官方网站-定义热爱的桌面" />
-	<link rel="icon" href="img/Newico.png" />
-    <link rel ="apple-touch-icon"href ="img/Newico.png" />
+    <meta name="description" content="LightFrame官方网站-定义热爱的桌面" />
+    <link rel="icon" href="img/Newico.png" />
+    <link rel="apple-touch-icon" href="img/Newico.png" />
+    <link rel="stylesheet" href="css/updateCard.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 
-
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>LightFrame</title>
 
     <style>
-        #canvas {
-            position: absolute;
-            display: block;
-            left: 0;
-            top: 0;
-            background: #0f0f0f;
-            z-index: -1;
-        }
+      #canvas {
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 0;
+        background: #0f0f0f;
+        z-index: -1;
+      }
     </style>
     <style>
-        @keyframes scaleDraw { /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
-            0% {
-                transform: scale(1); /*开始为原始大小*/
-            }
-
-            25% {
-                transform: scale(1.1); /*放大1.1倍*/
-            }
-
-            50% {
-                transform: scale(1);
-            }
-
-            75% {
-                transform: scale(1.1);
-            }
+      @keyframes scaleDraw {
+        /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+        0% {
+          transform: scale(1); /*开始为原始大小*/
         }
 
-        ul li ul {
-            position: relative;
-            min-height: 5%;
-            font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-            font-size: 17px;
-            line-height: 4;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        25% {
+          transform: scale(1.1); /*放大1.1倍*/
         }
 
-        box2 {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            /* 设置元素的相对于自身的偏移度为负50%(也就是元素自身尺寸的一半)*/
-            transform: translate(-50%, -50%);
+        50% {
+          transform: scale(1);
         }
 
-        @keyframes fade-in {
-            0% {
-                opacity: 0;
-            }
-            /*过渡状态 透明度为0*/
-            40% {
-                opacity: 0;
-            }
-            /*过渡状态 透明度为0*/
-            100% {
-                opacity: 1;
-            }
-            /*结束状态 透明度为1*/
+        75% {
+          transform: scale(1.1);
+        }
+      }
+
+      ul li ul {
+        position: relative;
+        min-height: 5%;
+        font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+        font-size: 17px;
+        line-height: 4;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      box2 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        /* 设置元素的相对于自身的偏移度为负50%(也就是元素自身尺寸的一半)*/
+        transform: translate(-50%, -50%);
+      }
+
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        /*过渡状态 透明度为0*/
+        40% {
+          opacity: 0;
+        }
+        /*过渡状态 透明度为0*/
+        100% {
+          opacity: 1;
+        }
+        /*结束状态 透明度为1*/
+      }
+
+      @-webkit-keyframes fade-in {
+        /*针对webkit内核*/
+        0% {
+          opacity: 0;
+        }
+        /*过渡状态 透明度为0*/
+        40% {
+          opacity: 0;
         }
 
-        @-webkit-keyframes fade-in { /*针对webkit内核*/
-            0% {
-                opacity: 0;
-            }
-            /*过渡状态 透明度为0*/
-            40% {
-                opacity: 0;
-            }
+        100% {
+          opacity: 1;
+        }
+      }
 
-            100% {
-                opacity: 1;
-            }
+      @keyframes move-appear {
+        from {
+          transform: translate(0, -10%);
+          opacity: 0;
         }
 
-        @keyframes move-appear {
-            from {
-                transform: translate(0,-10%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translate(0,0);
-                opacity: 1;
-            }
+        to {
+          transform: translate(0, 0);
+          opacity: 1;
         }
+      }
     </style>
 
     <style type="text/css">
-        .top {
-            /* 设置宽度高度背景颜色 */
-            height: auto; /*高度改为自动高度*/
-            width: 100%;
-            margin-left: 0;
-	    backdrop-filter:blur(6px);
-            background: rgba(222,227,236,0.7);
-            position: fixed; /*固定在顶部*/
-            top: 0px; /*离顶部的距离为0*/
-            left:0px;
-            margin-bottom: 5px;
-            box-shadow: rgba(182,187,216,1.0) 0px -5px 30px 0px;
-            //边框阴影
-        }
+      .top {
+        /* 设置宽度高度背景颜色 */
+        height: auto; /*高度改为自动高度*/
+        width: 100%;
+        margin-left: 0;
+        backdrop-filter: blur(6px);
+        background: rgba(222, 227, 236, 0.7);
+        position: fixed; /*固定在顶部*/
+        top: 0px; /*离顶部的距离为0*/
+        left: 0px;
+        margin-bottom: 5px;
+        box-shadow: rgba(182, 187, 216, 1) 0px -5px 30px 0px;
+        //边框阴影
+      }
 
-            .top ul {
-                /* 清除ul标签的默认样式 */
-                width: auto; /*宽度也改为自动*/
-                list-style-type: none;
-                white-space: nowrap;
-                overflow: hidden;
-                margin-left: 12%;
-                /* margin-top: 0;          */
-                padding: 0;
-            }
+      .top ul {
+        /* 清除ul标签的默认样式 */
+        width: auto; /*宽度也改为自动*/
+        list-style-type: none;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-left: 12%;
+        /* margin-top: 0;          */
+        padding: 0;
+      }
 
-            .top li {
-                float: left; /* 使li内容横向浮动，即横向排列  */
-                margin-right: 2%; /* 两个li之间的距离*/
-                position: relative;
-                overflow: hidden;
-            }
+      .top li {
+        float: left; /* 使li内容横向浮动，即横向排列  */
+        margin-right: 2%; /* 两个li之间的距离*/
+        position: relative;
+        overflow: hidden;
+      }
 
-                .top li a {
-                    /* 设置链接内容显示的格式*/
-                    display: block; /* 把链接显示为块元素可使整个链接区域可点击 */
-                    color: rgb(20,20,20);
-                    text-align: center;
-                    padding: 3px;
-                    overflow: hidden;
-                    text-decoration: none; /* 去除下划线 */
-                }
+      .top li a {
+        /* 设置链接内容显示的格式*/
+        display: block; /* 把链接显示为块元素可使整个链接区域可点击 */
+        color: rgb(20, 20, 20);
+        text-align: center;
+        padding: 3px;
+        overflow: hidden;
+        text-decoration: none; /* 去除下划线 */
+      }
 
-                    .top li a:hover {
-                        -webkit-animation: scaleDraw 5s ease-in-out infinite;
-                    }
+      .top li a:hover {
+        -webkit-animation: scaleDraw 5s ease-in-out infinite;
+      }
 
-            .top ul li ul {
-                /* 设置二级菜单 */
-                margin-left: -0.2px;
-                background: rgba(52,57,66,0.6);
-                position: relative;
-                display: none; /* 默认隐藏二级菜单的内容 */
-            }
+      .top ul li ul {
+        /* 设置二级菜单 */
+        margin-left: -0.2px;
+        background: rgba(52, 57, 66, 0.6);
+        position: relative;
+        display: none; /* 默认隐藏二级菜单的内容 */
+      }
 
-                .top ul li ul li {
-                    /* 二级菜单li内容的显示 */
+      .top ul li ul li {
+        /* 二级菜单li内容的显示 */
 
-                    float: none;
-                    text-align: center;
-                }
+        float: none;
+        text-align: center;
+      }
 
-            .top ul li:hover ul {
-                /* 鼠标选中二级菜单内容时 */
-                animation: fade-in; /*动画名称*/
-                animation-duration: 0.7s; /*动画持续时间*/
-                -webkit-animation: fade-in 0.7s; /*针对webkit内核*/
-                display: block;
-            }
+      .top ul li:hover ul {
+        /* 鼠标选中二级菜单内容时 */
+        animation: fade-in; /*动画名称*/
+        animation-duration: 0.7s; /*动画持续时间*/
+        -webkit-animation: fade-in 0.7s; /*针对webkit内核*/
+        display: block;
+      }
 
-            .top ri {
-                float: right; /* 使li内容横向浮动，即横向排列  */
-                margin-right: 13.5%; /* 两个li之间的距离*/
-                position: relative;
-                overflow: hidden;
-            }
+      .top ri {
+        float: right; /* 使li内容横向浮动，即横向排列  */
+        margin-right: 13.5%; /* 两个li之间的距离*/
+        position: relative;
+        overflow: hidden;
+      }
 
-                .top ri a {
-                    /* 设置链接内容显示的格式*/
-                    display: block; /*把链接显示为块元素可使整个链接区域可点击 */
-                    color: rgb(20,20,20);
-                    text-align: center;
-                    padding: 3px;
-                    overflow: hidden;
-                    text-decoration: none; /* 去除下划线 */
-                }
+      .top ri a {
+        /* 设置链接内容显示的格式*/
+        display: block; /*把链接显示为块元素可使整个链接区域可点击 */
+        color: rgb(20, 20, 20);
+        text-align: center;
+        padding: 3px;
+        overflow: hidden;
+        text-decoration: none; /* 去除下划线 */
+      }
 
-                    .top ri a:hover {
-                        /* 鼠标选中时背景变为黑色 */
-                        background-color: rgb(152,159,226);
-                        color:rgb(10,10,10);
-                        border-radius:10px;
-                    }
+      .top ri a:hover {
+        /* 鼠标选中时背景变为黑色 */
+        background-color: rgb(152, 159, 226);
+        color: rgb(10, 10, 10);
+        border-radius: 10px;
+      }
 
-        body {
-            background: rgb(244,244,244);
-            /* 这里是颜色设定啦！QwQ还原色#eff3f5 */
-        }
-	    
-foottxt a {
-  /* 设置链接内容显示的格式*/
-  display: block;
-  /* 把链接显示为块元素可使整个链接区域可点击 */
-  color: white;
-  text-align: center;
-  padding: 3px;
-  overflow: hidden;
-  text-decoration: none;
-  /* 去除下划线 */
-}
+      body {
+        background: rgb(244, 244, 244);
+        /* 这里是颜色设定啦！QwQ还原色#eff3f5 */
+      }
 
-foottxt a:hover {
-  color: rgb(0,148,255);
-  -webkit-animation: scaleDraw 5s ease-in-out infinite;
-}
+      foottxt a {
+        /* 设置链接内容显示的格式*/
+        display: block;
+        /* 把链接显示为块元素可使整个链接区域可点击 */
+        color: white;
+        text-align: center;
+        padding: 3px;
+        overflow: hidden;
+        text-decoration: none;
+        /* 去除下划线 */
+      }
+
+      foottxt a:hover {
+        color: rgb(0, 148, 255);
+        -webkit-animation: scaleDraw 5s ease-in-out infinite;
+      }
     </style>
     <style>
-        @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+      @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
 
+      html,
+      body {
+        min-width: 720px;
+        min-height: 1024px;
+        height: 100%;
+      }
+      body {
+        align-items: center;
+        background: rgb(244, 244, 244);
+        background: linear-gradient(
+          -45deg,
+          rgb(232, 237, 246),
+          rgb(232, 237, 246)
+        );
+        font-family: "Open Sans", sans;
+        justify-content: center;
+        text-align: center;
+      }
+      .div1 {
+        position: absolute;
+        top: 100%;
+        align-items: center;
+        font-family: "Open Sans", sans;
+        justify-content: center;
+        text-align: center;
+        color: #3e3e42;
+        font-size: 24px;
+      }
+      btxt {
+        color: rgb(20, 20, 20);
+        font-size: 48px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 30px;
+        -webkit-transform: translateZ(-1px);
+        transform: translateZ(-1px);
+      }
+      foottxt {
+        color: RGBA(244, 244, 244, 0.95);
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+        -webkit-transform: translateZ(-1px);
+        transform: translateZ(-1px);
+      }
+      h1 {
+        color: #3e3e42;
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 30px;
+        -webkit-transform: translateZ(-1px);
+        transform: translateZ(-1px);
+      }
+      wh1 {
+        color: rgb(30, 30, 30);
+        text-shadow: 0 0 4px rgba(20, 20, 20, 0.1);
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 30px;
+        -webkit-transform: translateZ(-1px);
+        transform: translateZ(-1px);
+      }
 
-        html, body {
-            min-width:720px;
-            min-height:1024px;
-            height: 100%;
-        }
-        body {
-            align-items: center;
-            background: rgb(244,244,244);
-            background: linear-gradient(-45deg, rgb(232,237,246),rgb(232,237,246));
-            font-family: 'Open Sans', sans;
-            justify-content: center;
-            text-align: center;
-        }
-        .div1 {
-            position:absolute;
-            top:100%;
-            align-items: center;
-            font-family: 'Open Sans', sans;
-            justify-content: center;
-            text-align: center;
-            color: #3e3e42;
-            font-size: 24px;
-        }
-        btxt {
-            color: rgb(20,20,20);
-            font-size: 48px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 30px;
-            -webkit-transform: translateZ(-1px);
-            transform: translateZ(-1px);
-        }
-	    foottxt {
-            color: RGBA(244,244,244,0.95);
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            -webkit-transform: translateZ(-1px);
-            transform: translateZ(-1px);
-        }
-        h1 {
-            color: #3e3e42;
-            font-size: 32px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 30px;
-            -webkit-transform: translateZ(-1px);
-            transform: translateZ(-1px);
-        }
-        wh1 {
-            color: rgb(30,30,30);
-            text-shadow: 0 0 4px rgba(20,20,20,0.1);
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 30px;
-            -webkit-transform: translateZ(-1px);
-            transform: translateZ(-1px);
-        }
-        .whborder
-{
-            margin-top:2%;
-            margin-left:25%;
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-            background: rgba(222,227,236,1.0);
-            border-radius:10px;
-            box-shadow:0 0 30px rgb(182,187,216,0.8);
-            width:50%;
-}
-        h3 {
-            color: #eb285d;
-            font-size: 16px;
-            margin-bottom: 6px;
-            -webkit-transform: translateZ(25px);
-            transform: translateZ(25px);
-        }
+      h3 {
+        color: #eb285d;
+        font-size: 16px;
+        margin-bottom: 6px;
+        -webkit-transform: translateZ(25px);
+        transform: translateZ(25px);
+      }
 
-        .cards {
-            margin-top:150px;
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0px 10px 20px 20px rgba(182,187,216, 0.09);
-            display: inline-block;
-            padding: 30px 35px;
-            -webkit-perspective: 1800px;
-            perspective: 1800px;
-            text-align: left;
-            -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-            -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            -webkit-transform: rotateX(0deg) rotateY(0deg);
-            transform: rotateX(0deg) rotateY(0deg);
-            min-width: 595px;
-        }
+      .cards {
+        margin-top: 150px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0px 10px 20px 20px rgba(182, 187, 216, 0.09);
+        display: inline-block;
+        padding: 30px 35px;
+        -webkit-perspective: 1800px;
+        perspective: 1800px;
+        text-align: left;
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: rotateX(0deg) rotateY(0deg);
+        transform: rotateX(0deg) rotateY(0deg);
+        min-width: 595px;
+      }
 
-        .card {
-            border-radius: 15px;
-            box-shadow: 5px 5px 20px -5px rgba(182,187,216, 0.6);
-            display: inline-block;
-            height: 250px;
-            overflow: hidden;
-            -webkit-perspective: 1200px;
-            perspective: 1200px;
-            position: relative;
-            -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            -webkit-transform: translatez(35px);
-            transform: translatez(35px);
-            transition: -webkit-transform 200ms ease-out;
-            transition: transform 200ms ease-out;
-            transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
-            width: 175px;
-            text-align: center;
-        }
+      .card {
+        border-radius: 15px;
+        box-shadow: 5px 5px 20px -5px rgba(182, 187, 216, 0.6);
+        display: inline-block;
+        height: 250px;
+        overflow: hidden;
+        -webkit-perspective: 1200px;
+        perspective: 1200px;
+        position: relative;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: translatez(35px);
+        transform: translatez(35px);
+        transition: -webkit-transform 200ms ease-out;
+        transition: transform 200ms ease-out;
+        transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
+        width: 175px;
+        text-align: center;
+      }
 
-            .card:not(:last-child) {
-                margin-right: 30px;
-            }
+      .card:not(:last-child) {
+        margin-right: 30px;
+      }
 
-        .card__img {
-            position: relative;
-            height: 100%;
-        }
+      .card__img {
+        position: relative;
+        height: 100%;
+      }
 
-        .card__bg {
-            bottom: -50px;
-            left: -50px;
-            position: absolute;
-            right: -50px;
-            top: -50px;
-            -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-            -webkit-transform: translateZ(-50px);
-            transform: translateZ(-50px);
-            z-index: 0;
-        }
+      .card__bg {
+        bottom: -50px;
+        left: -50px;
+        position: absolute;
+        right: -50px;
+        top: -50px;
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: translateZ(-50px);
+        transform: translateZ(-50px);
+        z-index: 0;
+      }
 
-        .card__text {
-            align-items: center;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            height: 70px;
-            justify-content: center;
-            position: absolute;
-            width: 100%;
-            z-index: 2;
-        }
+      .card__text {
+        align-items: center;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.55) 100%
+        );
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        height: 70px;
+        justify-content: center;
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+      }
 
-        .card__title {
-            color: #fff;
-            font-size: 18px;
-            font-weight: 700;
-            padding: 0 10px;
-            margin-bottom: 3px;
-        }
+      .card__title {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 0 10px;
+        margin-bottom: 3px;
+      }
 
-        .notice {
-            background: gold;
-            border-top-left-radius: 6px;
-            bottom: 0;
-            font-family: monospace;
-            font-size: 14px;
-            padding: 8px 10px;
-            position: absolute;
-            right: -20px;
-        }
+      .notice {
+        background: gold;
+        border-top-left-radius: 6px;
+        bottom: 0;
+        font-family: monospace;
+        font-size: 14px;
+        padding: 8px 10px;
+        position: absolute;
+        right: -20px;
+      }
     </style>
     <style>
+      .scrollbar {
+        width: 30px;
+        height: 300px;
+        margin: 0 auto;
+      }
 
-        .scrollbar {
-            width: 30px;
-            height: 300px;
-            margin: 0 auto;
-        }
+      html::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
+        height: 1px;
+      }
 
-        html::-webkit-scrollbar { /*滚动条整体样式*/
-            width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
-            height: 1px;
-        }
+      html::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        background: rgb(137, 142, 151);
+      }
 
-        html::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-            background: rgb(137,142,151);
-        }
+      html::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        background: #ededed;
+      }
+    </style>
+    <style>
+      .dbtn {
+        width: 100px;
+        text-align: center;
+        line-height: 100%;
+        padding: 0.3em;
+        font: 16px Arial, sans-serif bold;
+        font-size: 22px;
+        font-style: normal;
+        text-decoration: none;
+        margin: 2px;
+        vertical-align: text-bottom;
+        zoom: 1;
+        outline: none;
+        font-size-adjust: none;
+        font-stretch: normal;
+        border-radius: 10px;
+        box-shadow: 0px 1px 20px rgba(182, 187, 216, 0.8);
+        text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+        color: rgb(30, 30, 30);
+        border: 0px solid #2299ff;
+        background-repeat: repeat;
+        background-size: auto;
+        background-origin: padding-box;
+        background-clip: padding-box;
+        background-color: #3399ff;
+        background: linear-gradient(
+          135deg,
+          RGB(255, 255, 255) 0%,
+          RGB(255, 255, 255) 100%
+        );
+      }
 
-        html::-webkit-scrollbar-track { /*滚动条里面轨道*/
-            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-            border-radius: 10px;
-            background: #EDEDED;
-        }
-        </style>
-<style>
-    .dbtn {
-     width:100px;
-     text-align:center;
-     line-height:100%;
-     padding:0.3em;
-     font:16px Arial,sans-serif bold;
-     font-size:22px;
-     font-style:normal;
-     text-decoration:none;
-     margin:2px;
-     vertical-align:text-bottom;
-     zoom:1;
-     outline:none;
-     font-size-adjust:none;
-     font-stretch:normal;
-     border-radius:10px;
-     box-shadow:0px 1px 20px rgba(182,187,216,0.8);
-     text-shadow:0px 1px 1px rgba(0,0,0,0.3);
-     color:rgb(30,30,30);
-     border:0px solid #2299ff;
-     background-repeat:repeat;
-     background-size:auto;
-     background-origin:padding-box;
-     background-clip:padding-box;
-     background-color:#3399ff;
-     background: linear-gradient(135deg, RGB(255,255,255) 0%,RGB(255,255,255) 100%);
-}
- 
-.dbtn:hover {
-         background: linear-gradient(100deg, #4FAEEF 0%,#A784DA 100%);
-}
-
-</style>
-<style>
-        .area1 {
-            width:100%;
-            height:100%;
-            align-items: center;
-            /*background: url("img/NewLavenderDesign.png");
+      .dbtn:hover {
+        background: linear-gradient(100deg, #4faeef 0%, #a784da 100%);
+      }
+    </style>
+    <style>
+      .area1 {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        /*background: url("img/NewLavenderDesign.png");
 background-position:bottom center;
 background-repeat:no-repeat;*/
-           background:rgb(232,237,246);
-            font-family: 'Open Sans', sans;
-            justify-content: center;
-            text-align: center;
-        }
-        .area2 {
-            width:100%;
-            height:150%;
-            align-items: center;
-            background: linear-gradient(-45deg, rgb(232,237,246),rgb(232,237,246));
-            font-family: 'Open Sans', sans;
-            justify-content: center;
-            text-align: center;
-        }
-	        .areabottom {
-            width:100%;
-            height:10%;
-            align-items: center;
-            background: rgb(244,244,244);
-            background: linear-gradient(-45deg, rgb(60,78,95),rgb(60,78,95));
-            font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-            justify-content: center;
-            text-align: center;
-        }
-</style>
-<link rel="stylesheet" href="css/style1.css">
-</head>
-<body>
-<section class="area1">
-    <div class="cards">
-        <img class="card__img" style="width:720px" src="img/lfui.png" />
-    </div>
-     <br />
-     <btxt style="color:RGB(40,40,40);text-shadow: 0 0 4px rgba(0,0,0,0.1);">LightFrame - 定义喜欢的桌面</btxt>
-     <br /><br />
-     <button type="button" class="dbtn" onclick="window.location.href = 'Update/LightFrame.zip'" style="width:180px; height:40px;">下载</button>
-     <button type="button" class="dbtn" onclick="window.location.href = 'https://afdian.net/@EnderMo'" style="width:180px; height:40px; background: linear-gradient(135deg, RGB(233,76,70) 0%,RGB(185,29,71) 100%);color:#fefee9"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="RGB(233,233,233)" class="bi bi-heart-fill" viewBox="0 -3 18 18">
-  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
-</svg> 捐助</button>
-</section>
-<section class="area2">
-     <br />
-     <div class="whborder"><br /><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="rgb(158,142,250)" class="bi bi-clipboard-data" viewBox="0 0 16 16">
-  <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"></path>
-  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
-  <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
-</svg><br /><wh1 id="div1">正在获取更新log</wh1></div>
-</section>
-<section class="areabottom">
-     <br />
-     <foottxt>Copyright © 2018-2022 VertillusionStudio. All Rights Reserved.</foottxt>
-	<br />
-     <foottxt><a href="https://github.com/EnderMo/lightframe.vertillusion.xyz/blob/gh-pages/index.html" target="_blank">改进本页面</a></foottxt>
-</section>
+        background: rgb(232, 237, 246);
+        font-family: "Open Sans", sans;
+        justify-content: center;
+        text-align: center;
+      }
+      .area2 {
+        width: 100%;
+        align-items: center;
+        background: linear-gradient(
+          -45deg,
+          rgb(232, 237, 246),
+          rgb(232, 237, 246)
+        );
+        font-family: "Open Sans", sans;
+        justify-content: center;
+        text-align: center;
+      }
+      .areabottom {
+        width: 100%;
+        height: 10%;
+        align-items: center;
+        background: rgb(244, 244, 244);
+        background: linear-gradient(-45deg, rgb(60, 78, 95), rgb(60, 78, 95));
+        font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+        justify-content: center;
+        text-align: center;
+      }
+    </style>
+    <link rel="stylesheet" href="css/style1.css" />
+  </head>
+  <body>
+    <section class="area1">
+      <div class="cards">
+        <img class="card__img" style="width: 720px" src="img/lfui.png" />
+      </div>
+      <br />
+      <btxt
+        style="color: RGB(40, 40, 40); text-shadow: 0 0 4px rgba(0, 0, 0, 0.1)"
+        >LightFrame - 定义喜欢的桌面</btxt
+      >
+      <br /><br />
+      <button
+        type="button"
+        class="dbtn"
+        onclick="window.location.href = 'Update/LightFrame.zip'"
+        style="width: 180px; height: 40px"
+      >
+        下载
+      </button>
+      <button
+        type="button"
+        class="dbtn"
+        onclick="window.location.href = 'https://afdian.net/@EnderMo'"
+        style="
+          width: 180px;
+          height: 40px;
+          background: linear-gradient(
+            135deg,
+            RGB(233, 76, 70) 0%,
+            RGB(185, 29, 71) 100%
+          );
+          color: #fefee9;
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="RGB(233,233,233)"
+          class="bi bi-heart-fill"
+          viewBox="0 -3 18 18"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+          ></path>
+        </svg>
+        捐助
+      </button>
+    </section>
+    <section class="area2">
+      <br />
+      <div class="whborder">
+        <br /><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          fill="rgb(158,142,250)"
+          class="bi bi-clipboard-data"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"
+          ></path>
+          <path
+            d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"
+          ></path>
+          <path
+            d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"
+          ></path></svg
+        ><br /><wh1 id="div1" class="updateLog">
+          <div v-show="!isGet">正在获取更新Log</div>
+          <div id="uCard" v-for="update in updateLogs">
+            <div id="Uhead">{{update.head}}</div>
+            <div id="Ubodys" v-for="body in update.body">{{body}}</div>
+          </div>
+        </wh1>
+      </div>
+    </section>
+    <section class="areabottom">
+      <br />
+      <foottxt
+        >Copyright © 2018-2022 VertillusionStudio. All Rights Reserved.</foottxt
+      >
+      <br />
+      <foottxt
+        ><a
+          href="https://github.com/EnderMo/lightframe.vertillusion.xyz/blob/gh-pages/index.html"
+          target="_blank"
+          >改进本页面</a
+        ></foottxt
+      >
+    </section>
     <div class="top">
-        <center>
-            <ul>
-<nav class="nav">
-  <input type="checkbox" class="nav__cb" id="menu-cb">
-  <div class="nav__content">
-    <ul class="nav__items">
-      <li class="nav__item"> <span class="nav__item-text" onclick="window.location.href = 'https://vertillusion.xyz'"> 主站 </span> </li>
-      <li class="nav__item"> <span class="nav__item-text" onclick="window.location.href = 'https://forum.vertillusion.xyz'"> 论坛 </span> </li>
-      <li class="nav__item"> <span class="nav__item-text" onclick="window.location.href = 'Update/LightFrame.zip'"> 下载 </span> </li>
- <li class="nav__item"> <span class="nav__item-text" onclick="window.location.href = '#'"> 展示板 </span> </li>
-    </ul>
-  </div>
-  <label class="nav__btn" for="menu-cb"></label>
-</nav>
-                <li><a href="#">轻框 | LightFrame</a></li>
-                <ri><a href="https://afdian.net/@EnderMo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="RGB(233,76,60)" class="bi bi-heart-fill" viewBox="0 -3 18 18">
-  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
-</svg> 捐助</a></ri>
-            </ul>
-        </center>
+      <center>
+        <ul>
+          <nav class="nav">
+            <input type="checkbox" class="nav__cb" id="menu-cb" />
+            <div class="nav__content">
+              <ul class="nav__items">
+                <li class="nav__item">
+                  <span
+                    class="nav__item-text"
+                    onclick="window.location.href = 'https://vertillusion.xyz'"
+                  >
+                    主站
+                  </span>
+                </li>
+                <li class="nav__item">
+                  <span
+                    class="nav__item-text"
+                    onclick="window.location.href = 'https://forum.vertillusion.xyz'"
+                  >
+                    论坛
+                  </span>
+                </li>
+                <li class="nav__item">
+                  <span
+                    class="nav__item-text"
+                    onclick="window.location.href = 'Update/LightFrame.zip'"
+                  >
+                    下载
+                  </span>
+                </li>
+                <li class="nav__item">
+                  <span
+                    class="nav__item-text"
+                    onclick="window.location.href = '#'"
+                  >
+                    展示板
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <label class="nav__btn" for="menu-cb"></label>
+          </nav>
+          <li><a href="#">轻框 | LightFrame</a></li>
+          <ri
+            ><a href="https://afdian.net/@EnderMo"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="RGB(233,76,60)"
+                class="bi bi-heart-fill"
+                viewBox="0 -3 18 18"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                ></path>
+              </svg>
+              捐助</a
+            ></ri
+          >
+        </ul>
+      </center>
     </div>
-</body>
+  </body>
 </html>
 <script>
-var cards = document.querySelector(".cards");
-var images = document.querySelectorAll(".card__img");
-var backgrounds = document.querySelectorAll(".card__bg");
-var range = 40;
+  var cards = document.querySelector(".cards");
+  var images = document.querySelectorAll(".card__img");
+  var backgrounds = document.querySelectorAll(".card__bg");
+  var range = 40;
 
-// const calcValue = (a, b) => (((a * 100) / b) * (range / 100) -(range / 2)).toFixed(1);
-var calcValue = function calcValue(a, b) {return (a / b * range - range / 2).toFixed(1);}; // thanks @alice-mx
+  // const calcValue = (a, b) => (((a * 100) / b) * (range / 100) -(range / 2)).toFixed(1);
+  var calcValue = function calcValue(a, b) {
+    return ((a / b) * range - range / 2).toFixed(1);
+  }; // thanks @alice-mx
 
-var timeout = void 0;
-document.addEventListener('mousemove', function (_ref) {var x = _ref.x,y = _ref.y;
-  if (timeout) {
-    window.cancelAnimationFrame(timeout);
-  }
+  var timeout = void 0;
+  document.addEventListener(
+    "mousemove",
+    function (_ref) {
+      var x = _ref.x,
+        y = _ref.y;
+      if (timeout) {
+        window.cancelAnimationFrame(timeout);
+      }
 
-  timeout = window.requestAnimationFrame(function () {
-    var yValue = calcValue(y, window.innerHeight);
-    var xValue = calcValue(x, window.innerWidth);
-    console.log(xValue, yValue);
-    cards.style.transform = "rotateX(" + yValue + "deg) rotateY(" + xValue + "deg)";
+      timeout = window.requestAnimationFrame(function () {
+        var yValue = calcValue(y, window.innerHeight);
+        var xValue = calcValue(x, window.innerWidth);
+        //console.log(xValue, yValue);
+        cards.style.transform =
+          "rotateX(" + yValue + "deg) rotateY(" + xValue + "deg)";
 
-    [].forEach.call(images, function (image) {
-      image.style.transform = "translateX(" + -xValue + "px) translateY(" + yValue + "px)";
-    });
+        [].forEach.call(images, function (image) {
+          image.style.transform =
+            "translateX(" + -xValue + "px) translateY(" + yValue + "px)";
+        });
 
-    [].forEach.call(backgrounds, function (background) {
-      background.style.backgroundPosition = xValue * .45 + "px " + -yValue * .45 + "px";
-    });
-  });
-}, false);
+        [].forEach.call(backgrounds, function (background) {
+          background.style.backgroundPosition =
+            xValue * 0.45 + "px " + -yValue * 0.45 + "px";
+        });
+      });
+    },
+    false
+  );
 </script>
 <script>
-var xhr =  new XMLHttpRequest()
-xhr.open("get","https://lightframe.vertillusion.xyz/Update/Update.txt")
-xhr.send()
-xhr.onreadystatechange = function() {
-var txtval = xhr.response
-div1.innerHTML=txtval;
-}
+  var update = new Vue({
+    el: ".updateLog",
+    data: {
+      //是否已经获得更新日志
+      isGet: false,
+      updateLogs: [],
+    },
+  });
+  //卡片的组件
+  var xhr = new XMLHttpRequest();
+  xhr.open("get", "/Update/Update.txt");
+  xhr.send();
+  xhr.onreadystatechange = function () {
+    var txtval = xhr.response;
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      //去除以#开头的注释
+      var txtval = txtval.replace(/^#.*$/gm, "");
+      console.log(txtval);
+      //以换行符分割成数组
+      update.updateLogs = txtval.split("\r\n\r\n").map((item) => {
+        let contents = item.split("\r\n");
+        return { head: contents[0], body: contents.slice(1) };
+      });
+      update.isGet = true;
+    }
+  };
 </script>
