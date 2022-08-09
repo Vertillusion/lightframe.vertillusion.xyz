@@ -286,6 +286,7 @@
         margin-bottom: 30px;
         -webkit-transform: translateZ(-1px);
         transform: translateZ(-1px);
+        width: 100vw;
       }
 
       h3 {
@@ -422,7 +423,6 @@
     </style>
     <style>
       .dbtn {
-        cursor: pointer;
         width: 100px;
         text-align: center;
         line-height: 100%;
@@ -440,7 +440,7 @@
         border-radius: 10px;
         box-shadow: 0px 1px 20px rgba(182, 187, 216, 0.8);
         text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
-        color: rgb(30, 30, 30);
+        color: rgb(37, 42, 51);
         border: 0px solid #2299ff;
         background-repeat: repeat;
         background-size: auto;
@@ -484,7 +484,7 @@ background-repeat:no-repeat;*/
         text-align: center;
       }
       .areabottom {
-        width: 100%;
+        width: 100vw;
         height: 10%;
         align-items: center;
         background: rgb(244, 244, 244);
@@ -510,7 +510,7 @@ background-repeat:no-repeat;*/
       <button
         type="button"
         class="dbtn"
-        onclick="window.location.href = 'Update/LightFrame.zip'"
+        onclick="dappear()"
         style="width: 180px; height: 40px"
       >
         下载
@@ -616,7 +616,7 @@ background-repeat:no-repeat;*/
                 <li class="nav__item">
                   <span
                     class="nav__item-text"
-                    onclick="window.location.href = 'Update/LightFrame.zip'"
+                    onclick="dappear()"
                   >
                     下载
                   </span>
@@ -724,6 +724,112 @@ background-repeat:no-repeat;*/
         return { head: contents[0], body: contents.slice(1) };
       });
       update.isGet = true;
+      download_init();
     }
   };
+</script>
+
+
+
+<style>
+  .dbox{
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      color: #141414;
+      font-size: 18px;
+      background-color: rgba(20,20,20,.6);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      backdrop-filter: blur(3px);
+      transform: scale(0);
+  }
+  .dwindow{
+      position: absolute;
+      /* margin: 0 auto; */
+      height: 35vh;
+      width: 25vw;
+      box-shadow: 0 0 30px rgb(82 87 116 / 80%);
+      border-radius: 12px;
+      background-color: rgb(244, 244, 244);
+      text-align: center;
+      transform: scale(0);
+      transition: transform 0.3s cubic-bezier(0, 0.92, 0.84, 1.15);
+  }
+  .dcapition{
+      text-align: left;
+      padding: 8px 16px;
+      border-radius: 12px 12px 0 0;
+      letter-spacing: -1px;
+      padding-bottom: 15px;
+      background-color: rgb(230, 230, 230);
+      font-weight: bold;
+  }
+  .dclose{
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.1s;
+  }
+  .dclose:hover{
+      background-color: rgb(255, 115, 119);
+  }
+  .ditem{
+      margin: 14px auto;
+      padding: 10px 0;
+      width: 80%;
+      border-radius: 8px;
+      background-color: rgb(230, 230, 230, .8);
+      transition: background-color 0.3s;
+  }
+  .ditem:hover{
+      background-color: rgba(210, 210, 212, .8);
+      cursor: pointer;
+  }
+
+</style>
+<div class="dbox">
+  <div class="dwindow">
+      <div class="dcapition">下载</div>
+      <div class="dclose"><svg t="1660018435321" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1914" width="24" height="24"><path d="M571.733333 512l268.8-268.8c17.066667-17.066667 17.066667-42.666667 0-59.733333-17.066667-17.066667-42.666667-17.066667-59.733333 0L512 452.266667 243.2 183.466667c-17.066667-17.066667-42.666667-17.066667-59.733333 0-17.066667 17.066667-17.066667 42.666667 0 59.733333L452.266667 512 183.466667 780.8c-17.066667 17.066667-17.066667 42.666667 0 59.733333 8.533333 8.533333 19.2 12.8 29.866666 12.8s21.333333-4.266667 29.866667-12.8L512 571.733333l268.8 268.8c8.533333 8.533333 19.2 12.8 29.866667 12.8s21.333333-4.266667 29.866666-12.8c17.066667-17.066667 17.066667-42.666667 0-59.733333L571.733333 512z" p-id="1915"></path></svg></div>
+      <div class="dcontent"></div>
+  </div>
+</div>
+<script>
+  var dclose=document.querySelector('.dclose')
+      ,dwindow=document.querySelector('.dwindow')
+      ,dbox=document.querySelector('.dbox')
+      ,dcontent=document.querySelector('.dcontent');
+
+  function dappear(){
+      dbox.style.transform="scale(1)";
+      dwindow.style.transform='scale(1)';
+  }
+
+  function download_init(){
+
+    var version=version=update.updateLogs[0].head;
+    version=version.slice(0,-13).replace(' ','.');
+    
+    dcontent.innerHTML+=`<div class="ditem">${version} - x64 (推荐)</div><div class="ditem">${version} - x86</div>`;
+
+    dclose.onclick=_=>{
+        dwindow.style.transform="scale(0)";
+        setTimeout(_=>{
+            dbox.style.transform="scale(0)";
+        },150);
+    }
+  }
 </script>

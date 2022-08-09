@@ -1,14 +1,10 @@
 #uCard {
-        margin-top: 2%;
-        margin-left: 25%;
-        /* display: flex; */
-        justify-content: center;
+        margin: 2% auto 0 auto;
         text-align: center;
-        align-items: center;
         background: rgba(222, 227, 236, 1);
         border-radius: 10px;
         box-shadow: 0 0 30px rgb(182, 187, 216, 0.8);
-        /* max-width: 100%; */
+        max-width: 80%;
         min-width: 50%;
         width: fit-content;
         border-radius: 10px;
@@ -20,20 +16,19 @@
     padding-left: 10px;
     font-size: smaller;
     font-weight: bold;
-    color: #1e9bde;
+    color: rgb(35,35,35);
     padding-top: 10px;
-    /*被文字撑宽*/
-    /* 简单地实现了, Line 10-12 */
-
-
-
-
-
 }
 #uCard #Ubodys{
     margin:10px;
-    color: #495bff;
+    color: rgb(20,20,20);
     /*每个更新卡片的Body的style*/
     
+}
+br{
+    user-select: none;
+}
+body{
+    margin: 0;
 }
 /*祝好！QWQ*/
