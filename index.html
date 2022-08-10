@@ -823,7 +823,7 @@ background-repeat:no-repeat;*/
     var version=version=update.updateLogs[0].head;
     version=version.slice(0,-13).replace(' ','.');
     
-    dcontent.innerHTML+=`<div class="ditem">${version} - x64 (推荐)</div><div class="ditem">${version} - x86</div>`;
+    dcontent.innerHTML+=`<div class="ditem" onclick="window.open('/Update/LightFrame.zip')">${version} - x64 (推荐)</div><div class="ditem" onclick="window.open('/Update/Compatible/x86/LightFrame.zip')">${version} - x86</div>`;
 
     dclose.onclick=_=>{
         dwindow.style.transform="scale(0)";
