@@ -71,7 +71,7 @@
   vertical-align: top;
   width: 70px;
   text-align: center;
-    color:#fff;
+  color: rgb(37, 42, 51);
   font-size: 14px;
   line-height: 90px;
   font-family: Helvetica, Arial, sans-serif;
@@ -86,7 +86,6 @@
   color: rgb(26,188,156);
 }
 .nav__item-text {
-  color: rgb(37, 42, 51);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
