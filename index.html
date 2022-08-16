@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <div id="page_main">
     <meta name="keywords" content="LightFrame" />
     <meta name="description" content="LightFrame官方网站-定义热爱的桌面" />
     <link rel="icon" href="img/Newico.png" />
@@ -214,9 +215,14 @@
         /* 去除下划线 */
       }
 
-      foottxt a:hover {
+      foottxt span{
+        cursor: pointer;
+      }
+
+      foottxt a:hover, foottxt span:hover {
         color: rgb(0, 148, 255);
         -webkit-animation: scaleDraw 5s ease-in-out infinite;
+        animation: scaleDraw 5s ease-in-out infinite;
       }
     </style>
     <style>
@@ -485,7 +491,7 @@ background-repeat:no-repeat;*/
       }
       .areabottom {
         width: 100vw;
-        height: 10%;
+        height: fit-content;
         align-items: center;
         background: rgb(244, 244, 244);
         background: linear-gradient(-45deg, rgb(60, 78, 95), rgb(60, 78, 95));
@@ -582,13 +588,12 @@ background-repeat:no-repeat;*/
         >Copyright © 2018-2022 VertillusionStudio. All Rights Reserved.</foottxt
       >
       <br />
-      <foottxt
-        ><a
+      <foottxt><a
           href="https://github.com/EnderMo/lightframe.vertillusion.xyz/blob/gh-pages/index.html"
           target="_blank"
           >改进本页面</a
-        ></foottxt
-      >
+        ></foottxt>
+        <foottxt><span onclick="GoPage('/contributors/');">感谢名单</span></foottxt>
     </section>
     <div class="top">
       <center>
@@ -833,3 +838,46 @@ background-repeat:no-repeat;*/
     }
   }
 </script>
+
+</div>
+
+<iframe id="page_o" src=""></iframe>
+
+<script>
+  function GoPage(url){
+    var o=document.querySelector("#page_o");
+    var main=document.querySelector("#page_main");
+    var html=document.querySelector('html');
+    if(url==undefined){
+      main.style.display="block";
+      o.style.display="none";
+      html.style.overflowY="auto";
+      history.pushState(location.origin,'');
+    }else{
+      o.src=url;
+      setTimeout(_=>{
+        main.style.display="none";
+        html.style.overflowY="hidden";
+        o.style.display="block";
+        if(url[0]=='/')url=location.origin+url;
+        history.pushState(url, '');
+      }, 150);
+    }
+  }
+</script>
+
+<style>
+  #page_main{
+    z-index: 1;
+  }
+  #page_o{
+    z-index: 0;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: none;
+    width: 100vw;
+    height: 100vh;
+  }
+</style>
