@@ -2,7 +2,7 @@
 <html lang="zh-cn">
     <head>
         <meta charset="utf-8" />
-        <title>contributors</title>
+        <title>链接事件表列</title>
     </head>
     <contributors_body>
         <style>
@@ -97,16 +97,26 @@
 
         <div id="participator">
             <div class="sidebar">
-                <div class="text"><div class="explain">回到官网~</div>
-                <span onclick="window.open('https://lightframe.vertillusion.xyz/')"><strong>传送门</strong></span></div>
+                <div class="text"><div class="explain">官网</div>
+                <span onclick="window.open('https://lightframe.vertillusion.xyz')"><strong>传送门</strong></span></div>
             </div>
             <div class="body">
-                <div class="title">链接命令表列</div>
+                <div class="title">链接事件表列</div>
                 <div class="content"></div>
             </div>
         </div>
 
-      
+        <div id="sponsor">
+            <div class="sidebar">
+                <div class="text"><div class="explain">提供经费支持的人~</div>
+                <span onclick="window.open('https://afdian.net/@EnderMo')"><strong>用爱发电</strong></span></div>
+            </div>
+            <div class="body">
+                <div class="title">赞助者</div>
+                <div class="content"></div>
+            </div>
+        </div>
+
         <script>
             var content=document.querySelectorAll('.content'), d;
             var return_buttom=document.querySelector('.return');
@@ -121,12 +131,13 @@
                     else window.top.GoPage();
                 },300);
             }
-            fetch('EvList.txt',{cache: "no-cache"}).then(e=>e.text()).then(data=>{
+            fetch('contributors.txt',{cache: "no-cache"}).then(e=>e.text()).then(data=>{
                 console.log(data);
                 d=data;
                 data=data.split(/\r\n\r\n/);
                 // data.map(v=>v.replace(/\r\n/g,'<br>'));
                 content[0].innerHTML=data[0].replace(/\r\n/g,'<br>'),
+                content[1].innerHTML=data[1].replace(/\r\n/g,'<br>');
                 contributors_body.style.display='block';
                 contributors_body.style.marginLeft=0;
                 contributors_body.style.opacity=1;
