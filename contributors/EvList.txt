@@ -1,9 +1,9 @@
-[文件] 打开文件
-[*.vui] 打开卡片
-[文本] 悬停提示[仅限组件->悬停]
+(文件) 打开文件
+(*.vui) 打开卡片
+(文本) 悬停提示(仅限组件->悬停)
 LightFrame.action:NewStickyNote 新建便签纸
-LightFrame.Bin 拖拽删除[仅限组件]
-LightFrame.dohover 淡化[仅限组件]
+LightFrame.Bin 拖拽删除(仅限组件)
+LightFrame.dohover 淡化(仅限组件)
 LightFrame.emitter:Express 粒子(扩散)
 LightFrame.emitter:Love 粒子(MC:爱心)
 LightFrame.emitter:Bubbles 粒子(MC:气泡)
