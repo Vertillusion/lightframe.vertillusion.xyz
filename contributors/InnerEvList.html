@@ -102,7 +102,26 @@
             </div>
             <div class="body">
                 <div class="title">链接命令表列</div>
-                <div class="content"></div>
+                <div class="content">
+(文件) 打开文件 <br />
+(*.vui) 打开卡片<br />
+(文本) 悬停提示(仅限组件 悬停)<br />
+LightFrame.action:NewStickyNote 新建便签纸<br />
+LightFrame.Bin 拖拽删除(仅限组件)<br />
+LightFrame.dohover 淡化(仅限组件)<br />
+LightFrame.emitter:Express 粒子(扩散)<br />
+LightFrame.emitter:Love 粒子(MC:爱心)<br />
+LightFrame.emitter:Bubbles 粒子(MC:气泡)<br />
+LightFrame.emitter:Test 测试发生器(动画播放)<br />
+LightFrame.MC.BedUI 床(旧版)<br />
+LightFrame.MC.GameBedUI 床<br />
+LightFrame.MC.ChestUI 箱子<br />
+LightFrame.MC.CraftingTable 工作台<br />
+LightFrame.setwp:路径 切换壁纸<br />
+LightFrame.panel:StickyNote 便签纸创建页面<br />
+LightFrame.panel:MCThemed Minecraft主题组件创建页面<br />
+LightFrame.OpenSpace 专注空间<br />
+</div>
             </div>
         </div>
 
@@ -114,6 +133,9 @@
             return_buttom.onclick=function(){
                 contributors_body.style.marginLeft='-10vw';
                 contributors_body.style.opacity=0;
+                                contributors_body.style.display='block';
+                contributors_body.style.marginLeft=0;
+                contributors_body.style.opacity=1;
                 setTimeout(_=>{
                     contributors_body.style.display='none';
                     if(window.top===window.self)
@@ -121,17 +143,6 @@
                     else window.top.GoPage();
                 },300);
             }
-            fetch('EvList.txt',{cache: "no-cache"}).then(e=>e.text()).then(data=>{
-                console.log(data);
-                d=data;
-                data=data.split(/\r\n\r\n/);
-                // data.map(v=>v.replace(/\r\n/g,'<br>'));
-                content[0].innerHTML=data[0].replace(/\r\n/g,'<br>'),
-                content[1].innerHTML=data[1].replace(/\r\n/g,'<br>');
-                contributors_body.style.display='block';
-                contributors_body.style.marginLeft=0;
-                contributors_body.style.opacity=1;
-            })
         </script>
     </contributors_body>
 </html>
