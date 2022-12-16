@@ -108,6 +108,7 @@
                 <div class="content">星萃沫瞳CimiMoly</div>
             </div>
         </div>
+        
         <div id="participator">
             <div class="sidebar">
                 <div class="text"><div class="explain">参与本项目开发的人喔~</div>
@@ -149,8 +150,8 @@
                 d=data;
                 data=data.split(/\r\n\r\n/);
                 // data.map(v=>v.replace(/\r\n/g,'<br>'));
-                content[0].innerHTML=data[1].replace(/\r\n/g,'<br>'),
-                content[1].innerHTML=data[2].replace(/\r\n/g,'<br>');
+                content[1].innerHTML=data[0].replace(/\r\n/g,'<br>'),
+                content[2].innerHTML=data[1].replace(/\r\n/g,'<br>');
                 contributors_body.style.display='block';
                 contributors_body.style.marginLeft=0;
                 contributors_body.style.opacity=1;
