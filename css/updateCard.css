@@ -1,9 +1,9 @@
-#uCard {
+﻿#uCard {
         margin: 2% auto 0 auto;
         text-align: center;
-        background: rgba(222, 227, 236, 1);
+        background: rgba(255, 255, 255, 1);
         border-radius: 10px;
-        box-shadow: 0 0 30px rgb(182, 187, 216, 0.8);
+        box-shadow: 0 0 30px rgb(20, 20, 20, 0.2);
         max-width: 80%;
         min-width: 50%;
         width: fit-content;

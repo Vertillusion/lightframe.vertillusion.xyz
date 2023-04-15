@@ -110,12 +110,13 @@
         width: 100%;
         margin-left: 0;
         backdrop-filter: blur(6px);
-        background: rgba(222, 227, 236, 0.7);
+        -webkit-backdrop-filter: blur(6px);
+        background: rgba(255, 255, 255, 0.7);
         position: fixed; /*固定在顶部*/
         top: 0px; /*离顶部的距离为0*/
         left: 0px;
         margin-bottom: 5px;
-        box-shadow: rgba(182, 187, 216, 1) 0px -5px 30px 0px;
+        box-shadow: rgba(30, 30, 30, 0.2) 0px -5px 30px 0px;
         //边框阴影
       }
 
@@ -198,10 +199,6 @@
         border-radius: 10px;
       }
 
-      body {
-        background: rgb(244, 244, 244);
-        /* 这里是颜色设定啦！QwQ还原色#eff3f5 */
-      }
 
       foottxt a {
         /* 设置链接内容显示的格式*/
@@ -230,18 +227,16 @@
 
       html,
       body {
-        min-width: 720px;
+        min-width: 480px;
         min-height: 1024px;
+        width:100%;
         height: 100%;
+        padding:0;
+        margin:0;
       }
       body {
         align-items: center;
-        background: rgb(244, 244, 244);
-        background: linear-gradient(
-          -45deg,
-          rgb(232, 237, 246),
-          rgb(232, 237, 246)
-        );
+        background: rgb(255, 255, 255);
         font-family: "Open Sans", sans;
         justify-content: center;
         text-align: center;
@@ -258,7 +253,7 @@
       }
       btxt {
         color: rgb(20, 20, 20);
-        font-size: 48px;
+        font-size: 30px;
         font-weight: 800;
         letter-spacing: -1px;
         margin-bottom: 30px;
@@ -296,7 +291,7 @@
       }
 
       h3 {
-        color: #eb285d;
+        color: RGB(20,20,20);
         font-size: 16px;
         margin-bottom: 6px;
         -webkit-transform: translateZ(25px);
@@ -399,6 +394,9 @@
         position: absolute;
         right: -20px;
       }
+      span { 
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+}
     </style>
     <style>
       .scrollbar {
@@ -429,12 +427,13 @@
     </style>
     <style>
       .dbtn {
+        transition: .5s;
         width: 100px;
         text-align: center;
         line-height: 100%;
         padding: 0.3em;
         font: 16px Arial, sans-serif bold;
-        font-size: 22px;
+        font-size: 18px;
         font-style: normal;
         text-decoration: none;
         margin: 2px;
@@ -461,7 +460,9 @@
       }
 
       .dbtn:hover {
-        background: linear-gradient(100deg, #4faeef 0%, #a784da 100%);
+                transition: .3s;
+                box-shadow: 0px 1px 25px rgba(162, 167, 196, 1);
+                transform:rotateX(10deg);
       }
     </style>
     <style>
@@ -472,45 +473,108 @@
         /*background: url("img/NewLavenderDesign.png");
 background-position:bottom center;
 background-repeat:no-repeat;*/
-        background: rgb(232, 237, 246);
+        background: rgb(255, 255, 255);
         font-family: "Open Sans", sans;
         justify-content: center;
         text-align: center;
+        position:relative;
       }
       .area2 {
         width: 100%;
         align-items: center;
-        background: linear-gradient(
-          -45deg,
-          rgb(232, 237, 246),
-          rgb(232, 237, 246)
-        );
+        background: 
+          rgb(255, 255, 255);
         font-family: "Open Sans", sans;
         justify-content: center;
         text-align: center;
+        position: relative;
       }
       .areabottom {
         width: 100vw;
         height: fit-content;
         align-items: center;
-        background: rgb(244, 244, 244);
-        background: linear-gradient(-45deg, rgb(60, 78, 95), rgb(60, 78, 95));
+        background: rgb(35, 35, 35);
         font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
         justify-content: center;
         text-align: center;
       }
     </style>
+    <style>
+        .Light {
+            width: 300px;
+            height: 300px;
+            background: none;
+            border-radius: 300px;
+            box-shadow: -300px -300px 80px RGBA(255,255,255,.3);
+            position:absolute;
+        }
+      .groundPlace{
+        position:relative;
+        margin-top:100px;
+        margin-left:5%;
+        -webkit-box-shadow: inset 0 0 40px -10px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        background: url("img/NewLavenderDesign.jpg");
+        background-size:cover;
+        background-position: center;
+background-repeat:no-repeat;
+overflow:hidden;
+      }
+      .des
+      {
+        position: relative;
+        width:100%;
+        margin-top:80px;
+        height:auto;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: center;
+      }
+      .desBlock
+      {
+        padding-bottom:20px;
+        margin-top:0;
+        transition:.5s;
+        position: relative;
+        margin-left:25px;
+        margin-right:25px;
+        width:10vw;
+        min-width:140px;
+        height:240px;
+        display:inline-block;
+        margin-top:0px;
+        box-sizing:border-box;
+        float:left;
+        clear:both;
+        border:2px solid RGBA(210,210,210,0);
+      }
+      .desBlock:hover
+      {
+        transition:.6s cubic-bezier(0,.93,.59,.99);
+        box-shadow:5px 10px 30px 0 RGB(20,20,20,.3),0px 0px 0px 2px RGB(210,210,210);
+        border-radius: 10px;
+        transform: scale(1.02);
+      }
+      .desBlock span{
+        transition: .3s;
+        font-size:0.8vw;
+        opacity: 0;
+      }
+      .desBlock:hover span{
+        transition: .6s;
+        opacity: 1;
+      }
+    </style>
     <link rel="stylesheet" href="css/style1.css" />
   </head>
   <body>
-    <section class="area1">
-      <div class="cards" style="  -webkit-transform:translateZ(-1px);transform:translateZ(-1px);">
-        <img class="card__img" style="width: 720px" src="img/lfui.png" />
-      </div>
-      <br />
+    <div class="area1">
+      <div class="groundPlace" style="width:90%;height:60vh;">
+        <div class="Light"></div>
+<div style="position:relative;top:50%;transform:translateY(-50%);">
       <btxt
-        style="color: RGB(40, 40, 40); text-shadow: 0 0 4px rgba(0, 0, 0, 0.1)"
-        >LightFrame - 定义喜欢的桌面</btxt
+        style="color: RGB(255, 255, 255); text-shadow: 0 0 32px rgba(0, 0, 0, 0.9)"
+        >定义喜欢的桌面 其实很简单</btxt
       >
       <br /><br />
       <button
@@ -551,8 +615,46 @@ background-repeat:no-repeat;*/
         </svg>
         支持一下
       </button>
-    </section>
-    <section class="area2">
+</div>
+      </div>
+  
+  <div class="des">
+    
+    <div class="desBlock">
+ <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16" style="transform:translateY(8px);">
+  <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"/>
+</svg>
+<h3><br/>轻量</h3>
+<span>即开即用。使用自开发轻量级框架,实现极低的资源占用¹在满足桌面体验需求的同时保证日常使用流畅。 </span>
+    </div>
+    <div class="desBlock">
+      <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16" style="transform:translateY(8px);">
+  <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/>
+</svg>
+<h3><br/>灵感</h3>
+<span>使用应用内时钟、日历、便签纸等组件创造一个您喜爱的桌面²。此外,您还可以使用混合、组件切割功能使其更加贴合您的壁纸。</span>
+    </div>
+        <div class="desBlock">
+      <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-moon-stars" viewBox="0 0 16 16" style="transform:translateY(8px);">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars" viewBox="0 0 16 16">
+  <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
+  <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+</svg>
+</svg>
+<h3><br/>沉浸</h3>
+<span>专注于您的体验。应用提供专注空间功能,您可以轻易组织您的任务。同时您可以搭配桌面组件布置,创造更加丰富的日常体验。</span>
+    </div>
+        <div class="desBlock">
+ <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-bag-heart-fill" viewBox="0 0 16 16" style="transform:translateY(8px);">
+ <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+</svg>
+<h3><br/>免费</h3>
+<span>本应用始终不强制收费。当然,在有能力的情况下,希望您可以支持本应用来帮助我们长期开发和维护。</span>
+    </div>
+    <div style="display:block;height:60px;width:100%"></div>
+  </div>
+    </div>
+    <div class="area2">
       <br />
       <div class="whborder">
         <br /><br /><br /><br /><wh1 id="div1" class="updateLog">
@@ -563,9 +665,10 @@ background-repeat:no-repeat;*/
           </div>
         </wh1>
       </div>
-    </section>
-    <section class="areabottom">
+    </div>
+    <div class="areabottom">
       <br />
+            <foottxt style="font-size:8px">1.在一般情况下,运行内存不超过10MB.<br/>2.相关内容请在应用内查看提示.</foottxt><br />
       <foottxt style="font-size:13px">*将本作品用于非正当用途而造成的后果,责任与本作品无关.</foottxt><br />
       <foottxt
         >Copyright © 2018-2023 VertillusionStudio. All Rights Reserved.</foottxt
@@ -579,7 +682,7 @@ background-repeat:no-repeat;*/
           >改进本页面</a
         ></foottxt>
       <br />
-    </section>
+    </div>
     <div class="top">
       <center>
         <ul>
@@ -648,48 +751,6 @@ background-repeat:no-repeat;*/
   </body>
 </html>
 <script>
-  var cards = document.querySelector(".cards");
-  var images = document.querySelectorAll(".card__img");
-  var backgrounds = document.querySelectorAll(".card__bg");
-  var range = 40;
-
-  // const calcValue = (a, b) => (((a * 100) / b) * (range / 100) -(range / 2)).toFixed(1);
-  var calcValue = function calcValue(a, b) {
-    return ((a / b) * range - range / 2).toFixed(1);
-  }; // thanks @alice-mx
-
-  var timeout = void 0;
-  document.addEventListener(
-    "mousemove",
-    function (_ref) {
-      var x = _ref.x,
-        y = _ref.y;
-      if (timeout) {
-        window.cancelAnimationFrame(timeout);
-      }
-
-      timeout = window.requestAnimationFrame(function () {
-        var yValue = calcValue(y, window.innerHeight);
-        var xValue = calcValue(x, window.innerWidth);
-        //console.log(xValue, yValue);
-        cards.style.transform =
-          "rotateX(" + yValue + "deg) rotateY(" + xValue + "deg)";
-
-        [].forEach.call(images, function (image) {
-          image.style.transform =
-            "translateX(" + -xValue + "px) translateY(" + yValue + "px)" ;
-        });
-
-        [].forEach.call(backgrounds, function (background) {
-          background.style.backgroundPosition =
-            xValue * 0.45 + "px " + -yValue * 0.45 + "px";
-        });
-      });
-    },
-    false
-  );
-</script>
-<script>
   var update = new Vue({
     el: ".updateLog",
     data: {
@@ -738,6 +799,8 @@ background-repeat:no-repeat;*/
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       backdrop-filter: blur(3px);
       transform: scale(0);
+      opacity:0;
+      transition:opacity .3s cubic-bezier(.17,.67,.83,.67);
   }
   .dwindow{
       position: absolute;
@@ -750,6 +813,7 @@ background-repeat:no-repeat;*/
       text-align: center;
       transform: scale(0);
       transition: transform 0.3s cubic-bezier(0, 0.92, 0.84, 1.15);
+      transition-delay:.2s;
   }
   .dcapition{
       text-align: left;
@@ -805,6 +869,7 @@ background-repeat:no-repeat;*/
 
   function dappear(){
       dbox.style.transform="scale(1)";
+      dbox.style.opacity="1";
       dwindow.style.transform='scale(1)';
   }
 
@@ -850,7 +915,21 @@ background-repeat:no-repeat;*/
     }
   }
 </script>
+ <script>
+        const div = document.querySelector('.Light');
 
+        let isMouseDown = true; 
+
+        window.onmousemove = (e) => {
+            if(!isMouseDown) {
+                return;
+            }
+            
+            div.style.left = e.clientX*0.9 + 150+'px';
+            div.style.top = e.clientY-100 + 150+'px';
+        }
+
+    </script>
 <style>
   #page_main{
     z-index: 1;
