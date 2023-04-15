@@ -1,6 +1,6 @@
 沫狐奶昔 CimiMoly
 辰落火辉 Haceau-Zoac(vui.parser)
-憨包 MeroWindows(底层重构 / vui.dom)
+憨包 MeroWindows(vui.dom)
 悠瑞 iYoRoy(安装器和资源站)
 xihale(网站优化)
 飞飞 Skywards(网站优化)
