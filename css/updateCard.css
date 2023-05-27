@@ -1,5 +1,6 @@
 ﻿#uCard {
-        margin: 2% auto 0 auto;
+        transition: .3s;
+        margin: 3% auto 0 auto;
         text-align: center;
         background: rgba(255, 255, 255, 1);
         border-radius: 10px;
@@ -8,7 +9,12 @@
         min-width: 50%;
         width: fit-content;
         border-radius: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 16px;
+}
+#uCard:hover{
+        transition: .4s;
+        transform:scale(1.01);
+         box-shadow: 0 0 30px rgb(20, 20, 20, 0.2),0px 0px 0px 2px RGB(210,210,210);
 }
 #uCard #Uhead{
     /*每个更新卡片的头部style*/

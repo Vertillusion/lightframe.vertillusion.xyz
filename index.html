@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 
     <meta charset="UTF-8" />
-    <title>LightFrame</title>
+    <title>Vertillusion LightFrame</title>
 
     <style>
       #canvas {
@@ -224,7 +224,7 @@
     </style>
     <style>
       @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
-
+      @import url("https://fonts.googleapis.com/css?family=Merriweather:300,400");
       html,
       body {
         min-width: 480px;
@@ -291,11 +291,13 @@
       }
 
       h3 {
+
         color: RGB(20,20,20);
         font-size: 16px;
         margin-bottom: 6px;
         -webkit-transform: translateZ(25px);
         transform: translateZ(25px);
+        font-family: 'Merriweather',Century Gothic,CenturyGothic,AppleGothic,sans-serif;
       }
 
       .cards {
@@ -564,6 +566,11 @@ overflow:hidden;
         transition: .6s;
         opacity: 1;
       }
+      .desBlock:active
+      {
+        transform: scale(1.0017);
+        box-shadow:5px 10px 20px 0 RGB(20,20,20,.3),0px 0px 0px 2px RGB(210,210,210);
+      }
     </style>
     <link rel="stylesheet" href="css/style1.css" />
   </head>
@@ -656,8 +663,11 @@ overflow:hidden;
     </div>
     <div class="area2">
       <br />
+      <h3>Update logs</h3>
       <div class="whborder">
-        <br /><br /><br /><br /><wh1 id="div1" class="updateLog">
+        
+        <wh1 id="div1" class="updateLog">
+         
           <div v-show="!isGet">正在获取更新Log</div>
           <div id="uCard" v-for="update in updateLogs">
             <div id="Uhead">{{update.head}}</div>
@@ -900,6 +910,9 @@ overflow:hidden;
     var main=document.querySelector("#page_main");
     var html=document.querySelector('html');
     if(url==undefined){
+   
+
+
       main.style.display="block";
       o.style.display="none";
       html.style.overflowY="auto";
