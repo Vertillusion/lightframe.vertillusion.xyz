@@ -1,15 +1,13 @@
-import {footerText} from "./config.ts"
-
 import Contributors from "./Contributors.jsx";
 
 export default function Footer(){
   return (
     <div className="footer">
-      <About/>
+      <div className="about">在一般情况下,运行内存不超过10MB && 相关内容请在应用内查看提示.</div>
       <div style={{fontSize: "13px"}}>
         *将本作品用于非正当用途而造成的后果,责任与本作品无关.
       </div>
-      <div>
+      <div className="copyright">
         Copyright © 2018-{new Date().getFullYear()} 
         VertillusionStudio. All Rights Reserved.
       </div>
@@ -22,8 +20,4 @@ export default function Footer(){
       </div>
     </div>
   );
-}
-
-function About(){
-  return <div>{footerText.split("\n").map((item, i) => <div style={{fontSize: "8px"}} key={i}>{item}</div>)}</div>
 }
