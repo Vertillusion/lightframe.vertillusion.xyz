@@ -1,11 +1,10 @@
 .top{
   position: fixed;
-  height: 6vh;
+  height: auto;
   width: 100vw;
   top: 0;
   margin: 0;
   display: flex;
-  /* 透明背景 动态模糊 */
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -22,7 +21,7 @@
 }
 
 .top .title{
-  flex: 20%;
+  flex: 1;
   text-align: center;
   text-decoration: none;
   color: rgb(98, 99, 100);
@@ -32,8 +31,7 @@
 }
 
 .top .menu{
-  flex: 56%;
-  /* padding: 5px 20px; */
+  flex: 2;
   text-align: center;
 }
 
@@ -43,11 +41,22 @@
   border: none;
   box-shadow: none;
   font-size: 16px;
-  margin: 0 15px;
+  margin: 0 10px;
   background: none;
 }
 
 .top .donate{
-  flex: 24%;
+  flex: 1;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .top .menu {
+    flex: 1;
+  }
+
+  .top .menu .item {
+    font-size: 14px;
+    margin: 0 5px;
+  }
 }
