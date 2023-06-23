@@ -62,7 +62,3 @@ export const introConf: introConf_t = {
     },
   ],
 };
-
-export const footerText: string=
-`1.在一般情况下,运行内存不超过10MB.
-2.相关内容请在应用内查看提示.`
