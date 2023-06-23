@@ -1,0 +1,118 @@
+.contributors .return {
+  position: absolute;
+  top: 7vh;
+  left: 75px;
+}
+
+.contributors .title {
+  font-size: 20px;
+  background-color: rgb(220, 225, 239);
+  user-select: none;
+  margin-left: 75px;
+  text-align: center;
+  padding: 6px;
+  border-radius: 12px;
+  margin-top: 50px;
+}
+
+.contributors .content {
+  font-size: 18px;
+  text-align: left;
+  line-height: 2;
+  margin-left: 75px;
+  margin-bottom: 50px;
+}
+
+.contributors .ant-modal {
+  width: 70vw !important;
+  height: 70vh !important;
+}
+
+.contributors .ant-modal-content {
+  height: 100%;
+}
+
+.contributors .ant-modal-footer {
+  display: none;
+}
+
+.contributors .contributors_body {
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  position: absolute;
+  margin: 0;
+  background-color: rgb(244, 246, 255);
+  color: rgb(20, 20, 20);
+  opacity: 0;
+  transition: margin-left 0.6s cubic-bezier(0, 1.16, 1, 1), opacity 0.6s linear;
+}
+
+.contributors #owner,
+.contributors #sponsor,
+.contributors #participator {
+  position: relative;
+}
+
+.contributors .sidebar {
+  position: sticky;
+  top: 15px;
+  height: 0;
+  user-select: none;
+}
+
+.contributors .sidebar .text {
+  font-size: 18px;
+  border-left: 1px solid;
+  padding-left: 10px;
+  height: 68px;
+}
+
+.contributors .sidebar .explain {
+  margin-bottom: 8px;
+}
+
+.contributors .sidebar span {
+  margin: 200px 0;
+  border-bottom: 6px solid rgb(108, 132, 255);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.contributors .body {
+  width: fit-content;
+  margin-left: 82vw;
+}
+
+.contributors #owner #participator #sponsor {
+  display: none;
+  margin-left: -10vw;
+  opacity: 0;
+}
+
+.contributors #owner.show #participator,
+.contributors #owner.show #sponsor,
+.contributors #participator.show #owner,
+.contributors #participator.show #sponsor,
+.contributors #sponsor.show #owner,
+.contributors #sponsor.show #participator {
+  display: block;
+  margin-left: 0;
+  opacity: 1;
+}
+
+.contributors #owner .sidebar,
+.contributors #participator .sidebar,
+.contributors #sponsor .sidebar {
+  left: -10vw;
+  opacity: 0;
+  transition: opacity 0.6s linear, left 0.6s cubic-bezier(0, 1.16, 1, 1);
+}
+
+.contributors #owner.show .sidebar,
+.contributors #participator.show .sidebar,
+.contributors #sponsor.show .sidebar {
+  left: 0;
+  opacity: 1;
+}
