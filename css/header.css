@@ -1,0 +1,53 @@
+.top{
+  position: fixed;
+  height: 6vh;
+  width: 100vw;
+  top: 0;
+  margin: 0;
+  display: flex;
+  /* 透明背景 动态模糊 */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: rgba(30, 30, 30, 0.2) 0px -5px 30px 0px;
+  z-index: 99;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.top>*{
+  display: inline-block;
+}
+
+.top .title{
+  flex: 20%;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(98, 99, 100);
+  font-size: 1.1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.top .menu{
+  flex: 56%;
+  /* padding: 5px 20px; */
+  text-align: center;
+}
+
+.top .menu .item{
+  display: inline-block;
+  text-align: center;
+  border: none;
+  box-shadow: none;
+  font-size: 16px;
+  margin: 0 15px;
+  background: none;
+}
+
+.top .donate{
+  flex: 24%;
+  text-align: center;
+}
