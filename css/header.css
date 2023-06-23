@@ -1,9 +1,11 @@
 .top{
   position: fixed;
+  /* min-height: 6vh; */
   height: auto;
   width: 100vw;
   top: 0;
   margin: 0;
+  padding: 13px 0;
   display: flex;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
@@ -14,10 +16,6 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.top>*{
-  display: inline-block;
 }
 
 .top .title{
@@ -36,13 +34,18 @@
 }
 
 .top .menu .item{
-  display: inline-block;
   text-align: center;
   border: none;
   box-shadow: none;
   font-size: 16px;
   margin: 0 10px;
   background: none;
+}
+.top .menu :first-child{
+  margin-left: 0;
+}
+.top .menu :last-child{
+  margin-right: 0;
 }
 
 .top .donate{
@@ -52,11 +55,11 @@
 
 @media screen and (max-width: 768px) {
   .top .menu {
-    flex: 1;
+    flex: 1.5;
   }
 
   .top .menu .item {
     font-size: 14px;
-    margin: 0 5px;
+    margin: 0;
   }
 }

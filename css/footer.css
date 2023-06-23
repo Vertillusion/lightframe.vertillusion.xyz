@@ -14,15 +14,21 @@
     font-size: 16px;
     letter-spacing: 1px;
 }
+.footer .about{
+    margin: 0 20px;
+    font-size: small;
+}
+.footer .copyright{
+    margin: 5px 0;
+}
 
 .footer .btn-container{
-    width: fit-content;
     margin: 0 auto;
 }
 
 .footer .fooBtn{
-    margin: 0 auto;
-    display: block;
+    margin: 0 20px;
+    display: inline-block;
     font-size: large;
     text-decoration: none;
     color: RGBA(244, 244, 244, 0.95);
