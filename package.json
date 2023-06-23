@@ -7,10 +7,12 @@
   },
   "main": "/index.js",
   "devDependencies": {
-    "eslint": "^8.43.0",
+    "@babel/core": "latest",
+    "@babel/eslint-parser": "latest",
+    "eslint": "latest",
     "react-scripts": "^5.0.1"
   },
-  "name": "Proj",
+  "name": "Vertillusion LightFrame",
   "description": null,
   "version": "0.0.0",
   "scripts": {
