@@ -25,7 +25,7 @@
   display: inline-block;
   width: 180px;
   height: 40px;
-  margin: 0 10px;
+  margin: 10px;
   font-size: 16px;
   color: #fff;
 }
@@ -55,4 +55,24 @@
   overflow: hidden;
   width: 90vw;
   height: 60vh;
+}
+
+@media screen and (max-width: 768px) {
+  .body-title {
+    font-size: 24px;
+  }
+
+  .body-button-container Button {
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .body-title {
+    font-size: 20px;
+  }
+
+  .body-button-container Button {
+    margin: 2px;
+  }
 }
