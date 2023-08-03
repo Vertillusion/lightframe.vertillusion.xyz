@@ -1,7 +1,10 @@
-import {headerConf} from './config.ts'
+import {headerConf} from '../config'
+import React from 'react';
 
-import { HeartFilled } from '@ant-design/icons';
-import { Button } from 'antd';
+import { HeartFilled } from '@ant-design/icons'
+import { Button } from 'antd'
+
+import './header.scss'
 
 export default function Header() {
     return (
@@ -27,7 +30,7 @@ function MainOperators() {
   );
 }
 
-function Item({ href, text }){
+const Item: React.FC<{href:string, text:string}>=({ href, text }:{href:string, text:string})=>{
   return (
     <Button className='item' onClick={ _ => window.open(href) }> {text} </Button>
   );

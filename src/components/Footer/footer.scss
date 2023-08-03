@@ -33,7 +33,7 @@
     text-decoration: none;
     color: RGBA(244, 244, 244, 0.95);
     cursor: pointer;
-    
+    user-select: none;
 }
 .footer .fooBtn:hover{
     color: RGBA(244, 244, 244, 0.95);

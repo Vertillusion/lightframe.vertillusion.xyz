@@ -1,4 +1,8 @@
-import Contributors from "./Contributors.jsx";
+import React from 'react';
+
+import Contributors from "./Contributors"
+
+import './footer.scss'
 
 export default function Footer(){
   return (
@@ -19,5 +23,5 @@ export default function Footer(){
         <br/>
       </div>
     </div>
-  );
+  )
 }
