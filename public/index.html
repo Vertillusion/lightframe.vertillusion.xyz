@@ -1,83 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <lin>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#000000">
-  <title>Vertillusion LightFrame</title><meta name="description" content="欢迎使用Vertillusion LightFrame! 这是一个完全免费的桌面交互应用,轻量且即开即用,可自定义性较高。您可以使用应用内点击域、时钟、日历、便签纸等组件创造一个您喜爱的桌面。"><meta name="keywords" content="Vertillusion,LightFrame,轻框,LightFame官网,LightFrame桌面,MC桌面,桌面交互">
-  <!--
-    manifest.json provides metadata used when your web app is added to the
-    homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-  -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-  <!--
-    Notice the use of %PUBLIC_URL% in the tags above.
-    It will be replaced with the URL of the `public` folder during the build.
-    Only files inside the `public` folder can be referenced from the HTML.
-
-    Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-    work correctly both with client-side routing and a non-root public URL.
-    Learn how to configure a non-root public URL by running `npm run build`.
-  -->
-
-
-  <link rel="stylesheet" href="./css/main.css"></link>
-  <link rel="stylesheet" href="./css/header.css"></link>
-  <link rel="stylesheet" href="./css/intro.css"></link>
-  <link rel="stylesheet" href="./css/footer.css"></link>
-  <link rel="stylesheet" href="./css/download.css"></link>
-  <!-- <link rel="stylesheet" href="./css/contributiors.css"></link> -->
-  <style>
-    *::selection{
-      background: RGB(186,165,218);
-      color: #fff;
-    }
-    .top{
-      z-index: 99;
-    }
-    html body{
-      height: 100%;
-      width: 100%;
-      margin: 0;
-    }
-  </style>
+  <title>Vertillusion LightFrame</title>
   
 </head>
 <body>
   <div id="root"></div>
-  <!--
-    This HTML file is a template.
-    If you open it directly in the browser, you will see an empty page.
-
-    You can add webfonts, meta tags, or analytics to this file.
-    The build step will place the bundled scripts into the <body> tag.
-
-    To begin the development, run `npm start` or `yarn start`.
-    To create a production bundle, use `npm run build` or `yarn build`.
-  -->
-  <iframe id="page_o" src="/contributors/" style="display: none;z-index: 9999;width: 100vw;height: 100vh;margin: 0;border: none;"></iframe>
 </body>
-<script>
-  function GoPage(url){
-    var o=document.querySelector("#page_o");
-    var main=document.querySelector("#root");
-    var html=document.querySelector('html');
-    if(url==undefined){
-      main.style.display="block";
-      o.style.display="none";
-      html.style.overflowY="auto";
-      history.pushState(location.origin,'');
-    }else{
-      o.src=url;
-      setTimeout(_=>{
-        main.style.display="none";
-        html.style.overflowY="hidden";
-        o.style.display="block";
-        if(url[0]=='/')url=location.origin+url;
-        history.pushState(url, '');
-      }, 150);
-    }
-  }
-</script>
 </html>

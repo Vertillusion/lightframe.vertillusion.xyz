@@ -1,12 +1,14 @@
-import { Modal, Button } from 'antd';
-import React, { useState } from 'react';
+import { Modal, Button } from 'antd'
+import React, { useState } from 'react'
+
+import './download.scss'
 
 function Download() {
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
     setVisible(true);
-    document.body.style.overflow = "auto";
+    // document.body.style.overflow = "auto";
   };
 
   const downloadLink = (url, text) => (

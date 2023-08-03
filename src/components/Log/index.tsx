@@ -1,5 +1,9 @@
+import React from "react";
+
 import { useState, useEffect } from "react";
-import { Card } from "antd";
+import Card from "antd/es/card/Card";
+
+import "./log.scss";
 
 export default function Log() {
   const [data, setData] = useState([]);
@@ -10,6 +14,7 @@ export default function Log() {
       const jsonData = await response.text();
       const logsArray = jsonData.split("\n\n");
       setData(logsArray);
+      return new Promise<void>(resolve => resolve());
     };
     fetchData();
   }, []);
@@ -24,13 +29,7 @@ export default function Log() {
           const body = log.slice(1);
           return (
             <Card
-              style={{
-                width: "68vw",
-                margin: "16px auto",
-                padding: "8px",
-                cursor: "default",
-                fontSize: "15px",
-              }}
+              className="logItem"
               key={i}
               title={title}
               hoverable

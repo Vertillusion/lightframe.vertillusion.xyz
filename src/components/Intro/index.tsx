@@ -1,5 +1,9 @@
-import { Card } from 'antd';
-import { introConf } from './config.ts'
+import React from 'react'
+
+import Card from 'antd/es/card/Card'
+import { introConf } from '../config'
+
+import './intro.scss'
 
 export default function Intro() {
   return (
@@ -8,10 +12,10 @@ export default function Intro() {
         return <Item key={item.word} icon={item.icon} word={item.word} intro={item.intro} />
       })}
     </div>
-  );
+  )
 }
 
-function Item({icon, word, intro}) {
+const Item: React.FC<{icon:string[], word:string, intro:string}>=({icon, word, intro})=>{
   var p=0;
   return (
     <Card hoverable className="introItem">
@@ -21,5 +25,5 @@ function Item({icon, word, intro}) {
       <h3>{word}</h3>
       <span>{intro}</span>
     </Card>
-  );
+  )
 }

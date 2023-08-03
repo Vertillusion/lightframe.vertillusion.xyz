@@ -1,7 +1,11 @@
-import { Button } from "antd";
-import { HeartFilled } from "@ant-design/icons";
+import React from "react";
 
-import Download from "./Download.jsx";
+import { Button } from "antd"
+import { HeartFilled } from "@ant-design/icons"
+
+import Download from "./Download"
+
+import './main.scss'
 
 export default function Main() {
 
@@ -9,7 +13,7 @@ export default function Main() {
     <div className="groundPlace">
       <Body />
     </div>
-  );
+  )
 }
 
 
@@ -34,5 +38,5 @@ const Body = () => {
         </div>
       </div>
     </div>
-  );
+  )
 };
