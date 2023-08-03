@@ -14,8 +14,8 @@
     "eslint": "latest",
     "react-scripts": "^5.0.1"
   },
-  "name": "Vertillusion LightFrame",
-  "description": null,
+  "name": "vertillusion-lightframe-site",
+  "description": "The official website for Vertillusion LightFrame",
   "version": "0.0.3",
   "scripts": {
     "start": "react-scripts start",
