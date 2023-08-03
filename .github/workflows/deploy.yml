@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false  # 禁用默认行为以防止权限问题
+
+      - name: Authenticate with GitHub
+        run: echo "${{ secrets.GITHUB_TOKEN }}" > token.txt
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -27,4 +32,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
+          folder: build
           branch: gh-pages  # 部署到 GitHub Pages 的分支名称，通常是 "gh-pages"
