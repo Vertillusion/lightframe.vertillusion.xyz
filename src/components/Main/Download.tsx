@@ -13,7 +13,9 @@ function Download() {
 
 const downloadLink = (url, text) => (
   <Button onClick={() => {
-   fetch('https://api.vertillusion.com/download/increase.php');
+   fetch('https://api.vertillusion.com/download/increase.php',{
+    mode:'cors',   
+});
 
     // 执行下载链接
     window.location.href = url;
