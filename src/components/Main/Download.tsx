@@ -12,7 +12,7 @@ function Download() {
   };
 
   const downloadLink = (url, text) => (
-    <Button onClick={() => window.location.href=url}>
+    <Button onClick={() => window.location.href=url;console.log('666');}>
       {text}
     </Button>
   );
