@@ -11,11 +11,16 @@ function Download() {
     // document.body.style.overflow = "auto";
   };
 
-  const downloadLink = (url, text) => (
-    <Button onClick={() => window.location.href=url;console.log('666');}>
-      {text}
-    </Button>
-  );
+const downloadLink = (url, text) => (
+  <Button onClick={() => {
+    console.log('666');
+
+    // 执行下载链接
+    window.location.href = url;
+  }}>
+    {text}
+  </Button>
+);
 
   return (
     <>
