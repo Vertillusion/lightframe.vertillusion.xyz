@@ -35,8 +35,8 @@ const downloadLink = (url, text) => (
         onCancel={() => setVisible(false)}
         footer={[]}
       >
-        {downloadLink('/Update/LightFrame.zip', 'Windows x64 (推荐)')}
-        {downloadLink('/Update/Compatible/x86/LightFrame.zip', 'Windows - x86')}
+        {downloadLink('/Update/LightFrame.zip', 'LightFrame Windows x64 (推荐)')}
+        {downloadLink('/Update/Compatible/x86/LightFrame.zip', 'LightFrame Windows - x86')}
       </Modal>
     </>
   );
