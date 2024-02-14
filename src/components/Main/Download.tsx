@@ -7,6 +7,7 @@ function Download() {
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
+      fetch('https://api.vertillusion.com/download/increase.php');
     setVisible(true);
     // document.body.style.overflow = "auto";
   };
@@ -17,6 +18,7 @@ const downloadLink = (url, text) => (
 
     // 执行下载链接
     window.location.href = url;
+  fetch('https://api.vertillusion.com/download/increase.php');
   }}>
     {text}
   </Button>
