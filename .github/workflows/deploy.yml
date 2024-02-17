@@ -15,9 +15,6 @@ jobs:
         with:
           persist-credentials: false  # 禁用默认行为以防止权限问题
 
-      - name: Authenticate with GitHub
-        run: echo "${{ secrets.GITHUB_TOKEN }}" > token.txt
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
