@@ -1,0 +1,90 @@
+@import url("https://fonts.loli.net/css2?family=Bodoni+Moda:opsz,wght@6..96,600&family=Noto+Sans+SC:wght@100..900&family=Open+Sans:wght@300;400&display=swap");
+
+.acknowledgement{
+
+  position: fixed;
+  bottom: 26px;
+  right: 18px;
+  height: 165px;
+  width: 320px;
+
+  font-family: "Open Sans";
+
+  padding: 14px 18px;
+
+  // box 320*165px 圆角 18px阴影Offset 7px 7px 模糊16px 不透明度0.24
+  box-shadow: 7px 7px 23px rgba(0, 0, 0, 0.24);
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.7); // .top
+  backdrop-filter: blur(8px);
+
+  .header{
+
+    display: flex;
+    justify-content: space-between;
+
+    .title{
+
+      color:  #2D2D2D;
+      font-size: 18px;
+
+    }
+
+    .closer{
+
+      font-weight: bold;
+      font-size: 20px;
+      cursor: pointer;
+      user-select: none;
+
+    }
+
+  }
+
+  .content{
+
+    padding: 0;
+
+    .names, .title{
+
+      color: #414141;
+
+    }
+
+    .title{
+
+      font-size: 20pt;
+      // font-family: monospace;
+      margin: 5px 0;
+
+    }
+
+    .names{
+
+      font-size: 12pt;
+      
+      span{
+        margin-right: 3px;
+      }
+
+    }
+
+    .contributors{
+
+      font-size: 16pt;
+      color: #5750D3;
+      cursor: pointer;
+      
+      position: absolute;
+      bottom: 20px;
+
+      // underline
+      padding-bottom: 1px;
+      border-bottom: 3px solid;
+      width: fit-content;
+
+    }
+
+  }
+
+}
