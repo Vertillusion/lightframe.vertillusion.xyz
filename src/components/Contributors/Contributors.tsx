@@ -51,31 +51,29 @@ function Content() {
   });
 }
 
-const Contributors = () => {
-  const [modalVisible, setModalVisible] = useState(false);
 
-  const hide = () => {
-    setModalVisible(false);
-    document.body.style.overflow = "auto"; // scrollbar
-  };
-  const show = () => {
-    setModalVisible(true);
-    document.body.style.overflow = "hidden"; // scrollbar
-  };
+const hide = () => {
+  // setModalVisible(false);
+  const overlay = document.querySelector(".overlay") as HTMLElement;
+  overlay.style.transform = "translateX(-100%)";
+  document.body.style.overflow = "auto"; // scrollbar
+};
+export const show = () => {
+  // setModalVisible(true);
+  const overlay = document.querySelector(".overlay") as HTMLElement;
+  overlay.style.transform = "translateX(0)";
+  document.body.style.overflow = "hidden"; // scrollbar
+};
+
+const Contributors = ({children}:React.PropsWithChildren) => {
+  // const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
-      {/* <div className="fooBtn" type="primary" onClick={_=>GoPage('/contributors/')}>
-        鸣谢名单
-      </div> */}
-      <div className="fooBtn" type="primary" onClick={show}>
-        鸣谢名单
-      </div>
-
       <div
-        style={{
-          transform: modalVisible ? "translateX(0)" : "translateX(-100%)",
-        }}
+        // style={{
+        //   transform: modalVisible ? "translateX(0)" : "translateX(-100%)",
+        // }}
         className="overlay"
       >
         <Return onClick={hide} />
