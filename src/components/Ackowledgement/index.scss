@@ -1,10 +1,14 @@
+@import url("https://fonts.loli.net/css2?family=Bodoni+Moda:opsz,wght@6..96,600&family=Noto+Sans+SC:wght@100..900&family=Open+Sans:wght@300;400&display=swap");
+
 .acknowledgement{
 
   position: fixed;
-  bottom: 20px;
-  right: 14px;
+  bottom: 26px;
+  right: 18px;
   height: 165px;
   width: 320px;
+
+  font-family: "Open Sans";
 
   padding: 14px 18px;
 
@@ -22,16 +26,16 @@
     .title{
 
       color:  #2D2D2D;
-      font-size: 16px;
+      font-size: 18px;
 
     }
 
     .closer{
 
-      font-family: "Times New Roman";
       font-weight: bold;
       font-size: 20px;
       cursor: pointer;
+      user-select: none;
 
     }
 
@@ -50,7 +54,7 @@
     .title{
 
       font-size: 20pt;
-      font-family: monospace;
+      // font-family: monospace;
       margin: 5px 0;
 
     }
@@ -63,7 +67,7 @@
 
     .contributors{
 
-      font-size: 20pt;
+      font-size: 16pt;
       color: #5750D3;
       cursor: pointer;
       
