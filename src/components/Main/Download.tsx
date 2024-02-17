@@ -7,15 +7,22 @@ function Download() {
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
+      fetch('https://api.vertillusion.com/download/increase.php');
     setVisible(true);
     // document.body.style.overflow = "auto";
   };
 
-  const downloadLink = (url, text) => (
-    <Button onClick={() => window.location.href=url}>
-      {text}
-    </Button>
-  );
+const downloadLink = (url, text) => (
+  <Button onClick={() => {
+   fetch('https://api.vertillusion.com/download/increase.php');
+
+    // 执行下载链接
+    window.location.href = url;
+  fetch('https://api.vertillusion.com/download/increase.php');
+  }}>
+    {text}
+  </Button>
+);
 
   return (
     <>
@@ -28,8 +35,8 @@ function Download() {
         onCancel={() => setVisible(false)}
         footer={[]}
       >
-        {downloadLink('/Update/LightFrame.zip', 'v0.4.5.1.Build451 - x64 (推荐)')}
-        {downloadLink('/Update/Compatible/x86/LightFrame.zip', 'v0.4.5.1.Build451 - x86')}
+        {downloadLink('/Update/LightFrame.zip', 'LightFrame Windows x64 (推荐)')}
+        {downloadLink('/Update/Compatible/x86/LightFrame.zip', 'LightFrame Windows - x86')}
       </Modal>
     </>
   );

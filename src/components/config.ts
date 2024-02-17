@@ -13,16 +13,8 @@ export const headerConf: headerConf_t = {
     },
     {
       text: "论坛",
-      href: "https://forum.vertillusion.xyz",
-    },
-    {
-      text: "下载",
-      href: "/Update/LightFrame.zip",
-    },
-    {
-      text: "展示板",
-      href: "#",
-    },
+      href: "https://forum.vertillusion.com",
+    }
   ],
 };
 
