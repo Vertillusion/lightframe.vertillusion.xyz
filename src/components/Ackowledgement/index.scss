@@ -1,0 +1,82 @@
+.acknowledgement{
+
+  position: fixed;
+  bottom: 20px;
+  right: 14px;
+  height: 165px;
+  width: 320px;
+
+  padding: 14px 18px;
+
+  // box 320*165px 圆角 18px阴影Offset 7px 7px 模糊16px 不透明度0.24
+  box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.24);
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.7); // .top
+  backdrop-filter: blur(6px);
+
+  .header{
+
+    display: flex;
+    justify-content: space-between;
+
+    .title{
+
+      color:  #2D2D2D;
+      font-size: 16px;
+
+    }
+
+    .closer{
+
+      font-family: "Times New Roman";
+      font-weight: bold;
+      font-size: 20px;
+      cursor: pointer;
+
+    }
+
+  }
+
+  .content{
+
+    padding: 0;
+
+    .names, .title{
+
+      color: #414141;
+
+    }
+
+    .title{
+
+      font-size: 20pt;
+      font-family: monospace;
+      margin: 5px 0;
+
+    }
+
+    .names{
+
+      font-size: 12pt;
+
+    }
+
+    .contributors{
+
+      font-size: 20pt;
+      color: #5750D3;
+      cursor: pointer;
+      
+      position: absolute;
+      bottom: 20px;
+
+      // underline
+      padding-bottom: 1px;
+      border-bottom: 3px solid;
+      width: fit-content;
+
+    }
+
+  }
+
+}
