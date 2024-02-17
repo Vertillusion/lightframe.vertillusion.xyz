@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import "./index.scss";
 import { show } from '../Contributors/Contributors';
+import { names, title } from './data';
 
 export default function Acknowledgement() {
 
-  const [display, setDisplay] = React.useState(true);
+  const [display, setDisplay] = useState(true);
 
   function Title(){
     return <div className="title">
@@ -18,15 +19,13 @@ export default function Acknowledgement() {
   }
   
   function Content(){
-    /* 文字N月赞助者 #414141 20pt
-文字<名字> #414141 12pt
-文字 鸣谢名单 #5750D3 20pt */
 
     return <div className="content">
-      <div className="title">1月赞助者</div>
-      <div className="names">@abc @aaa</div>
+      <div className="title">{title}</div>
+      <div className="names">{names.map((item, index) => <span key={index}>@{item}</span>)}</div>
       <div className="contributors" onClick={show}>鸣谢名单</div>
     </div>;
+    
   }
 
   return display ? (
