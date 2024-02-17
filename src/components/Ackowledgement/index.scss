@@ -13,10 +13,10 @@
   padding: 14px 18px;
 
   // box 320*165px 圆角 18px阴影Offset 7px 7px 模糊16px 不透明度0.24
-  box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.24);
+  box-shadow: 7px 7px 23px rgba(0, 0, 0, 0.24);
   border-radius: 18px;
   background-color: rgba(255, 255, 255, 0.7); // .top
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
 
   .header{
 
@@ -62,6 +62,10 @@
     .names{
 
       font-size: 12pt;
+      
+      span{
+        margin-right: 3px;
+      }
 
     }
 
