@@ -71,9 +71,9 @@ const Contributors = ({children}:React.PropsWithChildren) => {
   return (
     <>
       <div
-        // style={{
-        //   transform: modalVisible ? "translateX(0)" : "translateX(-100%)",
-        // }}
+        style={{
+          transform: "translateX(-100%)",
+        }}
         className="overlay"
       >
         <Return onClick={hide} />
