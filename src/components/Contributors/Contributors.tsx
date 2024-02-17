@@ -2,7 +2,6 @@
 // 现在是用旧的解决方案，代码在 index.html 下方
 
 import React from "react";
-import { useState } from "react";
 
 import { contributions } from "../config";
 
