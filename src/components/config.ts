@@ -110,9 +110,11 @@ const sponsors: contribution_t = {
     href: "https://afdian.net/@EnderMo",
   },
   names: [
-    "*最后一次更新:2023/1/8",
+    "*最后一次更新:2024/3/17",
+    "JosteinPan",
     "白菜",
     "光标 Cursor",
+    "来自成都的kikiko",
     "瓶盖PING",
     "微笑不语",
     "bugjump",
