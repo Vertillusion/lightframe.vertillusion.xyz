@@ -115,6 +115,7 @@ const sponsors: contribution_t = {
     "白菜",
     "光标 Cursor",
     "来自成都的kikiko",
+    "梦竹",
     "瓶盖PING",
     "微笑不语",
     "bugjump",
