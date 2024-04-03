@@ -110,7 +110,7 @@ const sponsors: contribution_t = {
     href: "https://afdian.net/@EnderMo",
   },
   names: [
-    "*最后一次更新:2024/3/17",
+    "*最后一次更新:2024/4/3",
     "JosteinPan",
     "白菜",
     "Skuld_Cloud217",
