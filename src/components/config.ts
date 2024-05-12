@@ -14,6 +14,10 @@ export const headerConf: headerConf_t = {
     {
       text: "论坛",
       href: "https://forum.vertillusion.com",
+    },
+    {
+      text: "BILIBILI",
+      href: "https://space.bilibili.com/373454723",
     }
   ],
 };
