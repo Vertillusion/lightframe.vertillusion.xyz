@@ -22,6 +22,8 @@ jobs:
      
       - name: Install dependencies
         run: npm install
+      - name: Install OTHER dependencies
+        run: npm install --save-dev ajv@^7 
      
       - name: Build
         run: npm run build
