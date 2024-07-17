@@ -30,7 +30,7 @@ const Body = () => {
           <Button
             type="text"
             className="body-button support-btn"
-            onClick={() => window.open("https://afdian.net/@EnderMo")}
+            onClick={() => window.open("https://afdian.com/@EnderMo")}
           >
             <HeartFilled style={{ color: "rgb(233,233,233)" }} />
             支持一下
