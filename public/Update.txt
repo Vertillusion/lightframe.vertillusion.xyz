@@ -1,3 +1,7 @@
+v0.8.0 Build805  |  2024-7-18
++计分板
+→Mojang&Unifont字体:https://forum.vertillusion.com/d/75
+
 v0.7.0 Build700  |  2024-6-7
 +物品栏支持饱食度电量
 +箱子支持E/ESC关闭
