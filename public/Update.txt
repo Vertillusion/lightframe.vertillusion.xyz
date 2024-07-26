@@ -1,3 +1,8 @@
+v0.8.2 Build820  |  2024-7-26
++全新的路径切割
++修复计分板的部分bug
++修复了图标字体无法显示的bug
+
 v0.8.0 Build805  |  2024-7-18
 +计分板
 →Mojang&Unifont字体:https://forum.vertillusion.com/d/75
