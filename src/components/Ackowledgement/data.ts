@@ -1,5 +1,5 @@
-export const title = "6月赞助者（10r+）";
+export const title = "7月赞助者（10r+）";
 
 export const names = [
-  "一只耀星","StarsTwinkle","爱发电用户_a2ec1","ST_Swordfish","A设计-阿星🐸","爱发电用户_pDMf","爱发电用户_bNqF","❗赞助请暂时前往afdian.com"
+"sty_shrimp","隔壁潘老狗","竹空QwQ","爱发电用户_eaba9","于小小小小琰","Bonkchoy_"
 ];
