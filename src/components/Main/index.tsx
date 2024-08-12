@@ -22,7 +22,7 @@ const Body = () => {
     <div className="body-container">
       <div className="body-content">
         <span className="body-title">
-          定义喜欢的桌面 其实很简单
+          以轻量的方式定义自己喜欢的桌面
         </span>
         <br />
         <div className="body-button-container">
