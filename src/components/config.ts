@@ -12,7 +12,7 @@ export const headerConf: headerConf_t = {
       href: "https://vertillusion.com",
     },
     {
-      text: "论坛",
+      text: "社区",
       href: "https://forum.vertillusion.com",
     },
     {
