@@ -5,10 +5,11 @@ import { show } from '../Contributors/Contributors';
 import { sponsor} from './data';
 
 export default function Acknowledgement() {
-
-  const [display, setDisplay] = useState(false);
-  //sponsor.update(() => display ? {} : setDisplay(true));
-  sponsor.update().then((i) => { i == display ? {} :setDisplay(i)});
+  //前者是
+  const [display, setDisplay] = useState(true);
+  const [updated, setUpdated] = useState(false);
+  sponsor.update().then((i) => { i == updated ? {} : setUpdated(i) });
+  
 
   function Title(){
     return <div className="title">
