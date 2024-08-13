@@ -17,7 +17,7 @@ export default function Footer(){
       </div>
       <div className="btn-container">
           <div className="fooBtn" type="primary" onClick={show}>鸣谢名单</div>
-        <a className="fooBtn" href="https://github.com/EnderMo/lightframe.vertillusion.xyz/blob/gh-pages/index.html" target="_blank" >
+        <a className="fooBtn" href="https://github.com/Vertillusion/lightframe.vertillusion.xyz" target="_blank" >
           改进本页面
         </a>
         <br/>
