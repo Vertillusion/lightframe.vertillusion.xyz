@@ -103,6 +103,7 @@ const participators: contribution_t = {
     "悠瑞 iYoRoy(安装器和资源站)",
     "xihale(网站优化)",
     "诺尔 SlimeNull(网站优化)",
+    "Fuwaki(网站优化)",
   ],
 };
 
