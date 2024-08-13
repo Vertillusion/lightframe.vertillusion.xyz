@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 
 import "./index.scss";
 import { show } from '../Contributors/Contributors';
-import { names, title } from './data';
+import { sponsor} from './data';
 
 export default function Acknowledgement() {
 
-  const [display, setDisplay] = useState(true);
+  const [display, setDisplay] = useState(false);
+  //sponsor.update(() => display ? {} : setDisplay(true));
+  sponsor.update().then((i) => { i == display ? {} :setDisplay(i)});
 
   function Title(){
     return <div className="title">
@@ -19,10 +21,9 @@ export default function Acknowledgement() {
   }
   
   function Content(){
-
     return <div className="content">
-      <div className="title">{title}</div>
-      <div className="names">{names.map((item, index) => <span key={index}>@{item}</span>)}</div>
+      <div className="title">{sponsor.title}</div>
+      <div className="names">{sponsor.names.map((item, index) => <span key={index}>@{item}</span>)}</div>
       <div className="contributors" onClick={show}>鸣谢名单</div>
     </div>;
     
