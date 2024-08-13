@@ -3,7 +3,7 @@ export const sponsor = {
     updated: false,
     get title() {
         var now_month = new Date().getMonth()+1;
-        return now_month+"月"+"赞助者";
+        return (now_month-1)+"月"+"赞助者";
     },
     getRawData: async (year: number, month: number, page: number) => {
         try {
