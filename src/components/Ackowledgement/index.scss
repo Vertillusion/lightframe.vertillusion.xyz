@@ -1,90 +1,77 @@
 @import url("https://fonts.loli.net/css2?family=Bodoni+Moda:opsz,wght@6..96,600&family=Noto+Sans+SC:wght@100..900&family=Open+Sans:wght@300;400&display=swap");
 
-.acknowledgement{
+.acknowledgement {
+    position: fixed; 
+    bottom: 26px; // 距离窗口底部的距离 
+    right: 18px; // 距离窗口右侧的距离 
+    width: 350px; // 设置元素宽度  
+    max-width: 100vw; // 设置最大宽度为视口宽度的 -- %   
+    max-height: calc(26vw * 0.26); // 设置最大高度为视口宽度的 -- %  
+    overflow: auto; // 自动滚动条
+    font-family: "Open Sans";
+    padding: 14px 18px;
+    box-shadow: 7px 7px 23px rgba(0, 0, 0, 0.24);
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    user-select: none; // 禁止选中
 
-  position: fixed;
-  bottom: 26px;
-  right: 18px;
-  height: 200px;
-  width: 350px;
-
-  font-family: "Open Sans";
-
-  padding: 14px 18px;
-
-  // box 320*165px 圆角 18px阴影Offset 7px 7px 模糊16px 不透明度0.24
-  box-shadow: 7px 7px 23px rgba(0, 0, 0, 0.24);
-  border-radius: 18px;
-  background-color: rgba(255, 255, 255, 0.7); // .top
-  backdrop-filter: blur(16px);
-
-  .header{
-
+  .header {
     display: flex;
     justify-content: space-between;
 
-    .title{
-
-      color:  #2D2D2D;
+    .title {
+      color: #2D2D2D;
       font-size: 18px;
-
     }
 
-    .closer{
-
+    .closer {
       font-weight: bold;
       font-size: 20px;
       cursor: pointer;
       user-select: none;
-
     }
-
   }
 
-  .content{
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 10px;
+    max-width: 100%;
+    overflow: hidden;
 
-    padding: 0;
-
-    .names, .title{
-
-      color: #414141;
-
-    }
-
-    .title{
-
-      font-size: 20pt;
-      // font-family: monospace;
-      margin: 5px 0;
-
-    }
-
-    .names{
-
-      font-size: 12pt;
-      
-      span{
-        margin-right: 3px;
-      }
-
-    }
-
-    .contributors{
-
+    .contributors {
       font-size: 16pt;
-      color: #5750D3;
+      color: white; // 文字颜色
+      background: #5750D3; // 按钮主题色
       cursor: pointer;
-      
-      position: absolute;
-      bottom: 20px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-align: center;
+      transition: background-color 0.3s ease;
 
-      // underline
-      padding-bottom: 1px;
-      border-bottom: 3px solid;
-      width: fit-content;
-
+      // 鼠标悬停
+      &:hover {
+        background-color: #8886b3; // 变灰
+      }
     }
 
+    .names-container {
+      flex: 1;
+      overflow-y: auto;
+
+      .names {
+        font-size: 12pt;
+        margin-bottom: 20px;
+
+        span {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+}
   }
 
 }
