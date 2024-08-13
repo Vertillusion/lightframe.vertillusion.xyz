@@ -30,7 +30,7 @@ export default function Acknowledgement() {
     
   }
 
-  return display ? (
+  return display&&updated ? (
     <div className="acknowledgement">
       <div className="header">
         <Title/>
