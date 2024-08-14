@@ -71,7 +71,7 @@ export const introConf: introConf_t = {
 
 type contribution_t = {
   title: string;
-  explain: string;
+  explain: string; 
   link: {
     text: string;
     href: string;
@@ -81,11 +81,11 @@ type contribution_t = {
 
 const author: contribution_t = {
   title: "原作",
-  explain: `是LightFrame的造物主啦~ *:"Vertillusion"是属"CimiMoly"所有的发布载体.`,
-  link: {
-    text: "关于项目",
+  explain: '是LightFrame的造物主啦~ "Vertillusion"是属"CimiMoly"所有的发布载体.',
+    link: {
+    text: "",
     href: "https://github.com/EnderMo/LightFrame",
-  },
+  }, 
   names: ["沫狐奶昔 CimiMoly"],
 };
 
@@ -104,6 +104,7 @@ const participators: contribution_t = {
     "xihale(网站优化)",
     "诺尔 SlimeNull(网站优化)",
     "Fuwaki(网站优化)",
+    "yizhixianyuuuu(网站优化)",
   ],
 };
 
