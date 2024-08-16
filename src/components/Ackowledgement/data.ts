@@ -1,13 +1,13 @@
 export const sponsor = {
     data: [""],
+    month: 0,
     updated: false,
     get title() {
-        var now_month = new Date().getMonth()+1;
-        return (now_month-1)+"月"+"赞助者";
+        return this.month+"月"+"赞助者";
     },
-    getRawData: async (year: number, month: number, page: number) => {
+    getRawData: async () => {
         try {
-            var res=await fetch("https://api.vertillusion.com/afdian/sponsors?user_id=6e896a724cde11ea8f4e52540025c377&month=" + month + "&year=" + year + "&page=" + page)
+            var res=await fetch("https://api.vertillusion.com/afdian/monthly-sponsors.php");
             if (!res.ok) {
                 console.log("Error: " + res.statusText);
                 return null;
@@ -23,36 +23,13 @@ export const sponsor = {
         if(this.updated && !ignore_updated) {
             return true;
         }
-        let now = new Date();
-        let pages = [];
-        var year, month = 0;
-        year=now.getFullYear();
-        month = now.getMonth() + 1;
-        if (month == 1) {
-            month = 12;
-            year--;
-        } else {
-            month--;
+        var res = await this.getRawData();
+        if (res != null && res.status == true) {
+            this.data = res.data;
+            this.month = res.month;
+            this.updated = true;
+            return true;
         }
-        
-        pages.push(await this.getRawData(year,month, 1));
-        if (pages[0] != null && pages[0].ec == 200 && pages[0].em == "ok") {
-            while (pages[pages.length - 1].data.has_more == 1) {
-                pages.push(await this.getRawData(year,month, pages.length + 1));
-            }
-            this.data.length = 0;
-            for (let i = 0; i < pages.length; i++) {
-                this.data.push(...(pages[i].data.list.map((item) => item.name)));
-            }
-            if (this.data.length == pages[0].data.total_count) {
-                console.log("Sponsors: " + this.data);
-                this.updated = true;
-                return true;
-            } else {
-                return false;
-            }
-        }
-        console.log("Error[afadian API]: " + pages[0].em);
         return false;
             
         
