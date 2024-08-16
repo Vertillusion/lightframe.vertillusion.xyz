@@ -77,6 +77,14 @@ type contribution_t = {
     href: string;
   };
   names: string[];
+  //设置这个来添加从api获取的数据
+  dynamic?:{
+    enable: boolean;
+    url: string;
+    //解析数据的函数，最后要返回一个数组，这个数组会被显示
+    solve_func: (data: string) => string[];
+  }
+  
 };
 
 const author: contribution_t = {
@@ -113,71 +121,38 @@ const sponsors: contribution_t = {
   explain: "提供经费支持的人~",
   link: {
     text: "用爱发电",
-    href: "https://afdian.net/@EnderMo",
+    href: "https://afdian.com/@EnderMo",
   },
   names: [
-    "*最后一次更新:2024/4/3",
-    "JosteinPan",
-    "白菜",
-    "Skuld_Cloud217",
-    "光标 Cursor",
-    "来自成都的kikiko",
-    "以珀瑞纳",
-    "梦竹",
-    "A-bigqian",
-    "Li_wasmcwasmc",
-    "瓶盖PING",
-    "微笑不语",
-    "bugjump",
-    "糕蛋的盒子",
-    "ArsiIksait",
-    "风未亭",
-    "朔墨霜",
-    "mcyyds",
-    "悠瑞 iYoRoy",
-    "爱发电用户_Cv5E",
-    "Little_H",
-    "尘埃dust",
-    "方法哥哥",
-    "眼界迷茫",
-    "silijia",
-    "有我无敌TNT",
-    "魔方",
-    "Lawrence",
-    "不分佐鼬",
-    "千幻梦古",
-    "爱恰饭的瑟瑟",
-    "F粉丝",
-    "无聊的探索",
-    "spottple",
-    "eugeo",
-    "lennn",
-    "HASep_HySen",
-    "did世界",
-    "xiao—mao",
-    "再热寂",
-    "jun_xiang",
-    "优霜辰",
-    "爱发电用户_4JNV",
-    "爱发电用户_Ug96",
-    "爱发电用户_Cv5E",
-    "爱发电用户_HNK6",
-    "爱发电用户_njk5",
-    "爱发电用户_f45b",
-    "爱发电用户_4MpJ",
-    "爱发电用户_Nv4B",
-    "爱发电用户_uvNR",
-    "爱发电用户_DT4G",
-    "爱发电用户_qaWR",
-    "爱发电用户_ATpF",
-    "爱发电用户_asP6",
-    "爱发电用户_fwR5",
-    "爱发电用户_HNK6",
-    "爱发电用户_ACcp",
-    "爱发电用户_EA9N",
-    "爱发电用户_Bh4p",
-    "爱发电用户_WTBS",
+    ""
   ],
+  dynamic: {
+    enable: true,
+    url: "https://api.vertillusion.com/afdian/all-sponsors.php",
+    solve_func: (data) => {
+      let res = JSON.parse(data);
+      if (res != undefined && res.status == true) { 
+        let t: string[] = [];     //用于存放默认名字的数组
+        let r: string[] = res.data
+          .sort()
+          .filter((item: string) => {
+            if (item.startsWith("爱发电用户_")) {
+              t.push("@"+item); 
+              return false;
+            };
+            return true;
+          })
+          .map((item, index) => "@" + item);
+        
+        r.reverse().push("*最后一次更新: " + res.date+" （非默认名字按照字符顺序排列😃）");
+        r.reverse();
+        r.push(...t);
+        return r;
+      }
+      console.log(data);
+      throw "无法获取赞助者名单_错误的响应";
+    },
+  }
 };
 
 export const contributions=[
