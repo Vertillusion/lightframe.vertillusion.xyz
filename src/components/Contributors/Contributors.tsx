@@ -1,7 +1,8 @@
 // TODO 设计一个新的 Contributors 组件
 // 现在是用旧的解决方案，代码在 index.html 下方
 
-import React from "react";
+import React, { useState } from "react";
+
 
 import { contributions } from "../config";
 
@@ -35,7 +36,19 @@ function Return({ onClick }) {
 }
 function Content() {
   return contributions.map((content, index) => {
-    return <div key={index} className="content">
+    const [display, setDisplay] = useState(false);
+    if (content.dynamic != undefined) {
+      fetch(content.dynamic.url).then(
+        (res) => {
+        res.text().then((text) => {
+          content.names = content.dynamic.solve_func(text);
+          setDisplay(true);
+        })
+      }).catch((err) => {
+        console.log("fetch error:"+err)
+      })
+    }
+    return content.dynamic==undefined||(content.dynamic!=undefined&&display) ? <div key={index} className="content">
       <div className="sidebar">
         <div className="explain">{content.explain}</div>
         <span onClick={() => window.open(content.link.href)}>
@@ -46,7 +59,7 @@ function Content() {
         <div className="title">{content.title}</div>
         <div className="text">{content.names.map((item, index) => <div key={index}>{item}</div>)}</div>
       </div>
-    </div>;
+    </div>:<></>;
   });
 }
 
