@@ -9,7 +9,7 @@ export const headerConf: headerConf_t = {
   operators: [
     {
       text: "主站",
-      href: "https://vertillusion.com",
+      href: "https://www.vertillusion.xyz",
     },
     {
       text: "社区",
