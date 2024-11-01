@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.8d0ebb9a.css",
-    "main.js": "/static/js/main.b7ee5f6c.js",
+    "main.js": "/static/js/main.dda418c3.js",
     "static/media/NewLavenderDesign.jpg": "/static/media/NewLavenderDesign.24cea8fec7179747d7b3.jpg",
     "index.html": "/index.html",
     "main.8d0ebb9a.css.map": "/static/css/main.8d0ebb9a.css.map",
-    "main.b7ee5f6c.js.map": "/static/js/main.b7ee5f6c.js.map"
+    "main.dda418c3.js.map": "/static/js/main.dda418c3.js.map"
   },
   "entrypoints": [
     "static/css/main.8d0ebb9a.css",
-    "static/js/main.b7ee5f6c.js"
+    "static/js/main.dda418c3.js"
   ]
 }
