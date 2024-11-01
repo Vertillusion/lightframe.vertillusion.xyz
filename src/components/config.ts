@@ -128,7 +128,7 @@ const sponsors: contribution_t = {
   ],
   dynamic: {
     enable: true,
-    url: "https://api.vertillusion.com/afdian/all-sponsors.php",
+    url: "https://api.vertillusion.xyz/afdian/all-sponsors.php",
     solve_func: (data) => {
       let res = JSON.parse(data);
       if (res != undefined && res.status == true) { 
