@@ -7,7 +7,7 @@ export const sponsor = {
     },
     getRawData: async () => {
         try {
-            var res=await fetch("https://api.vertillusion.xyz/afdian/monthly-sponsors.php");
+            var res=await fetch("https://api.vertillusion.xyz/sponsors/monthly");
             if (!res.ok) {
                 console.log("Error: " + res.statusText);
                 return null;
@@ -24,9 +24,9 @@ export const sponsor = {
             return true;
         }
         var res = await this.getRawData();
-        if (res != null && res.status == true) {
-            this.data = res.data;
-            this.month = res.month;
+        if (res != null && res.code == 200) {
+            this.data = res.data.sponsors;
+            this.month = res.data.month;
             this.updated = true;
             return true;
         }

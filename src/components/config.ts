@@ -128,12 +128,12 @@ const sponsors: contribution_t = {
   ],
   dynamic: {
     enable: true,
-    url: "https://api.vertillusion.xyz/afdian/all-sponsors.php",
+    url: "https://api.vertillusion.xyz/sponsors/all",
     solve_func: (data) => {
       let res = JSON.parse(data);
-      if (res != undefined && res.status == true) { 
+      if (res != undefined && res.code == 200) { 
         let t: string[] = [];     //用于存放默认名字的数组
-        let r: string[] = res.data
+        let r: string[] = res.data.sponsors
           .sort()
           .filter((item: string) => {
             if (item.startsWith("爱发电用户_")) {
@@ -144,7 +144,7 @@ const sponsors: contribution_t = {
           })
           .map((item, index) => "@" + item);
         
-        r.reverse().push("*最后一次更新: " + res.date+" （非默认名字按照字符顺序排列😃）");
+        r.reverse().push("*最后一次更新: " + res.data.date+" （非默认名字按照字符顺序排列😃）");
         r.reverse();
         r.push(...t);
         return r;
