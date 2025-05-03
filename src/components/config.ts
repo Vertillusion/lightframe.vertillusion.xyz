@@ -12,8 +12,8 @@ export const headerConf: headerConf_t = {
       href: "https://www.vertillusion.com",
     },
     {
-      text: "社区",
-      href: "https://forum.vertillusion.com",
+      text: "壁纸库",
+      href: "https://lfs.vertillusion.com",
     },
     {
       text: "BILIBILI",
