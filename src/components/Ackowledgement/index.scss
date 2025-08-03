@@ -5,11 +5,11 @@
     bottom: 26px;
     right: 18px;
     height: auto;
-    max-height: 220px;
-    min-height: 180px;
+    max-height: 200px;
+    min-height: 140px;
     width: 350px;
     font-family: "Open Sans";
-    padding: 14px 18px;
+    padding: 14px 18px 20px 18px;
     box-shadow: 7px 7px 23px rgba(0, 0, 0, 0.24);
     border-radius: 18px;
     background-color: rgba(255, 255, 255, 0.7);
@@ -19,10 +19,11 @@
     .header {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 8px;
 
         .title {
             color: #2D2D2D;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .closer {
@@ -34,26 +35,32 @@
     }
 
     .content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         div {
             margin: 0;
             position: relative;
         }
 
         padding: 0;
+        width: 100%;
+        box-sizing: border-box;
 
         .names {
             // 容器
             position: relative;
-            min-height: 80px; // 最小高度
-            max-height: 83px; // 最大高度
+            min-height: 60px; // 最小高度
+            max-height: 63px; // 最大高度
             margin-top: 1px; // 顶部边距
             border-top: 1px solid #dcdcdc; // 顶部边框
-            padding: 10px 10px 10px 0; // 内边距
+            padding: 5px 10px 5px 0; // 内边距
             overflow-y: auto; // 垂直滚动
             overflow-y: scroll;
+            width: 100%;
 
             &::-webkit-scrollbar {
-                // Webkit 浏览器（Chrome, Safari, Edge）
+                // Webkit 浏览器
                 display: none;
             }
 
@@ -89,18 +96,21 @@
     }
 
     .title {
-        font-size: 20pt;
-        margin: 5px 0;
+        font-size: 16pt;
+        margin: 3px 0;
     }
 
     .contributors {
-        font-size: 16pt;
+        font-size: 14pt;
         color: #5750D3;
         cursor: pointer;
         position: relative;
-        padding-top: 8px;
-        padding-bottom: 1px;
-        border-bottom: 3px solid;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid;
         width: fit-content;
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 }
