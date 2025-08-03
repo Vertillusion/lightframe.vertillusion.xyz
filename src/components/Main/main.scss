@@ -55,24 +55,57 @@
   overflow: hidden;
   width: 90vw;
   height: 60vh;
+  background-position: center center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: var(--breakpoint-md)) {
   .body-title {
     font-size: 24px;
   }
 
   .body-button-container Button {
     margin: 5px;
+    width: 160px;
+  }
+
+  .groundPlace {
+    height: 50vh;
   }
 }
 
-@media screen and (max-width: 480px) {
+// 小屏幕手机
+@media screen and (max-width: var(--breakpoint-sm)) {
   .body-title {
     font-size: 20px;
   }
 
   .body-button-container Button {
     margin: 2px;
+    width: 140px;
+    font-size: 14px;
+  }
+
+  .groundPlace {
+    height: 40vh;
+    margin: 80px 0 0 5%;
+  }
+}
+
+// 大屏幕
+@media screen and (min-width: var(--breakpoint-lg)) {
+  .body-title {
+    font-size: 36px;
+  }
+
+  .body-button-container Button {
+    width: 200px;
+    height: 45px;
+    font-size: 17px;
+  }
+
+  .groundPlace {
+    height: 70vh;
+    max-width: 1200px;
+    margin: 120px auto 0 auto;
   }
 }
