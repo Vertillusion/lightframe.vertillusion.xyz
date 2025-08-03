@@ -7,6 +7,9 @@
     justify-content: center;
     text-align: center;
     padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
 .footer div{
@@ -17,23 +20,81 @@
 .footer .about{
     margin: 0 20px;
     font-size: small;
+    line-height: 1.4;
 }
 .footer .copyright{
     margin: 5px 0;
+    font-size: 14px;
 }
 
 .footer .btn-container{
-    margin: 0 auto;
+    margin: 10px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .footer .fooBtn{
-    margin: 0 20px;
+    margin: 0 15px 10px;
     display: inline-block;
     font-size: large;
     text-decoration: none;
     color: RGBA(244, 244, 244, 0.95);
     cursor: pointer;
     user-select: none;
+}
+
+@media screen and (max-width: var(--breakpoint-md)) {
+  .footer .about {
+    font-size: 13px;
+    margin: 0 15px;
+  }
+
+  .footer .copyright {
+    font-size: 13px;
+  }
+
+  .footer .fooBtn {
+    font-size: 15px;
+    margin: 0 10px 8px;
+  }
+}
+
+// 小屏幕
+@media screen and (max-width: var(--breakpoint-sm)) {
+  .footer {
+    padding: 12px 0;
+  }
+
+  .footer .about {
+    font-size: 12px;
+    margin: 0 10px;
+  }
+
+  .footer .copyright {
+    font-size: 12px;
+  }
+
+  .footer .fooBtn {
+    font-size: 14px;
+    margin: 0 8px 6px;
+  }
+}
+
+// 大屏幕
+@media screen and (min-width: var(--breakpoint-xl)) {
+  .footer .about {
+    font-size: 14px;
+  }
+
+  .footer .copyright {
+    font-size: 15px;
+  }
+
+  .footer .fooBtn {
+    font-size: 16px;
+    margin: 0 20px 12px;
+  }
 }
 .footer .fooBtn:hover{
     color: RGBA(244, 244, 244, 0.95);
