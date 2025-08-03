@@ -38,9 +38,13 @@
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
 
   .body {
-    width: max-content;
+    width: 100%;
+    max-width: 600px;
+    min-width: 280px;
 
     .title {
       text-align: center;
@@ -57,17 +61,25 @@
 
     .text,
     .title {
-      margin-left: 75px;
+      margin-left: 20px;
       padding: 6px;
+
+      @media (min-width: 768px) {
+        margin-left: 75px;
+      }
     }
   }
 
   .sidebar {
     position: sticky;
     top: 15px;
-    margin-left: 82vw;
-    height: 0px;
+    margin-left: 0;
+    margin-bottom: 20px;
     text-align: left;
+
+    @media (min-width: 768px) {
+      margin-left: 82vw;
+    }
 
     .explain::before{
       content: " ";
@@ -76,6 +88,10 @@
       background: black;
       position: absolute;
       left: -10px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
   
     }
 
