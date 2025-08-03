@@ -53,13 +53,46 @@
   text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+// CSS断点
+@media screen and (max-width: var(--breakpoint-md)) {
   .top .menu {
     flex: 1.5;
   }
 
   .top .menu .item {
     font-size: 14px;
-    margin: 0;
+    margin: 0 5px;
+  }
+
+  .top .title {
+    font-size: 1rem;
+  }
+}
+
+// 小屏幕
+@media screen and (max-width: var(--breakpoint-sm)) {
+  .top {
+    padding: 10px 0;
+  }
+
+  .top .title {
+    font-size: 0.9rem;
+  }
+
+  .top .menu .item {
+    font-size: 12px;
+    margin: 0 3px;
+  }
+}
+
+// 大屏幕
+@media screen and (min-width: var(--breakpoint-lg)) {
+  .top .title {
+    font-size: 1.2rem;
+  }
+
+  .top .menu .item {
+    font-size: 17px;
+    margin: 0 15px;
   }
 }
