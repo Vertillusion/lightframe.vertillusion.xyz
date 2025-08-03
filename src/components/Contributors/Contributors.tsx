@@ -48,18 +48,27 @@ function Content() {
         console.log("fetch error:"+err)
       })
     }
-    return content.dynamic==undefined||(content.dynamic!=undefined&&display) ? <div key={index} className="content">
-      <div className="sidebar">
-        <div className="explain">{content.explain}</div>
-        <span onClick={() => window.open(content.link.href)}>
-          <strong>{content.link.text}</strong>
-        </span>
-      </div>
-      <div className="body">
-        <div className="title">{content.title}</div>
-        <div className="text">{content.names.map((item, index) => <div key={index}>{item}</div>)}</div>
-      </div>
-    </div>:<></>;
+    return (
+      /* 解决 React 的 key 警告问题 */
+      <React.Fragment key={index}>
+        {content.dynamic==undefined||(content.dynamic!=undefined&&display) ? (
+          <div className="content">
+            <div className="sidebar">
+              <div className="explain">{content.explain}</div>
+              <span onClick={() => window.open(content.link.href)}>
+                <strong>{content.link.text}</strong>
+              </span>
+            </div>
+            <div className="body">
+              <div className="title">{content.title}</div>
+              <div className="text">
+                {content.names.map((item, idx) => <div key={idx}>{item}</div>)}
+              </div>
+            </div>
+          </div>
+        ) : null}
+      </React.Fragment>
+    );
   });
 }
 
