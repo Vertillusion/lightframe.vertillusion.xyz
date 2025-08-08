@@ -128,7 +128,7 @@ const sponsors: contribution_t = {
   ],
   dynamic: {
     enable: true,
-    url: "https://api.vertillusion.com/sponsors/all",
+    url: "https://api.vilinko.com/sponsors/all",
     solve_func: (data) => {
       let res = JSON.parse(data);
       if (res != undefined && res.code == 200) { 

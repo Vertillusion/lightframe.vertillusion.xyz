@@ -7,18 +7,18 @@ function Download() {
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
-      fetch('https://api.vertillusion.com/counter/add?id=1');
+      fetch('https://api.vilinko.com/counter/add?id=1');
     setVisible(true);
     // document.body.style.overflow = "auto";
   };
 
 const downloadLink = (url, text) => (
   <Button onClick={() => {
-   fetch('https://api.vertillusion.com/counter/add?id=1');
+   fetch('https://api.vilinko.com/counter/add?id=1');
 
     // 执行下载链接
     window.location.href = url;
-  fetch('https://api.vertillusion.com/counter/add?id=1');
+  fetch('https://api.vilinko.com/counter/add?id=1');
   }}>
     {text}
   </Button>

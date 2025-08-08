@@ -7,7 +7,7 @@ export const sponsor = {
     },
     getRawData: async () => {
         try {
-            var res=await fetch("https://api.vertillusion.com/sponsors/monthly");
+            var res=await fetch("https://api.vilinko.com/sponsors/monthly");
             if (!res.ok) {
                 console.log("Error: " + res.statusText);
                 return null;
