@@ -17,8 +17,8 @@ export default function Header() {
 }
 
 function Donate() {
-  return <div className="donate"><Button type="text" shape="round" onClick={_ => window.open('https://afdian.com/a/EnderMo')}>
-    <HeartFilled style={{ color: 'red' }} /> 捐助
+  return <div className="donate"><Button type="text" shape="round" onClick={_ => window.open('https://www.vilinko.com/#?link=links/sponsor.html')}>
+    <HeartFilled style={{ color: 'red' }} /> 支持我们
   </Button></div>;
 }
 
