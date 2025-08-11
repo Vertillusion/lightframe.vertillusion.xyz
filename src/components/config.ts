@@ -9,11 +9,11 @@ export const headerConf: headerConf_t = {
   operators: [
     {
       text: "主站",
-      href: "https://www.vertillusion.com",
+      href: "https://www.vilinko.com",
     },
     {
       text: "壁纸库",
-      href: "https://lfs.vertillusion.com",
+      href: "https://lfs.vilinko.com",
     },
     {
       text: "BILIBILI",
