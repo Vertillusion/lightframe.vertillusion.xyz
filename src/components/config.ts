@@ -89,7 +89,7 @@ type contribution_t = {
 
 const author: contribution_t = {
   title: "原作",
-  explain: '是LightFrame的造物主啦~ "Vertillusion"是属"CimiMoly"所有的发布载体.',
+  explain: '是LightFrame的造物主啦~ "Vilinko"是属"CimiMoly"所有的发布载体.',
     link: {
     text: "",
     href: "https://github.com/EnderMo/LightFrame",
@@ -106,13 +106,13 @@ const participators: contribution_t = {
   },
   names: [
     "沫狐奶昔 CimiMoly",
-    "辰落火辉 Haceau-Zoac(vui.parser)",
-    "憨包 MeroWindows(vui.dom)",
-    "悠瑞 iYoRoy(安装器和资源站)",
-    "xihale(网站优化)",
-    "诺尔 SlimeNull(网站优化)",
-    "Fuwaki(网站优化)",
-    "yizhixianyuuuu(网站优化)",
+    "辰落火辉 Haceau-Zoac (vui.parser)",
+    "憨包 MeroWindows (vui.dom)",
+    "悠瑞 iYoRoy (安装器和资源站)",
+    "xihale (网站优化)",
+    "诺尔 SlimeNull (网站优化)",
+    "Fuwaki (网站优化)",
+    "yuyudifiesh (网站优化)",
   ],
 };
 
@@ -121,7 +121,7 @@ const sponsors: contribution_t = {
   explain: "提供经费支持的人~",
   link: {
     text: "用爱发电",
-    href: "https://afdian.com/@EnderMo",
+    href: "https://afdian.com/a/EnderMo",
   },
   names: [
     ""

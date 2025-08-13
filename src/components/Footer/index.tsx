@@ -12,12 +12,13 @@ export default function Footer(){
         *将本作品用于非正当用途而造成的后果,责任与本作品无关.
       </div>
       <div className="copyright">
-        Copyright © 2018-{new Date().getFullYear()} 
-        VertillusionStudio. All Rights Reserved.
+        <a href="https://beian.miit.gov.cn/" target="_blank" style={{color: "white", textDecoration: "none"}}>粤ICP备2025454076号</a><br></br>
+        Copyright © 2018&nbsp;-&nbsp;{new Date().getFullYear()} 
+        &nbsp;Vilinko&nbsp;Studio. All Rights Reserved.
       </div>
       <div className="btn-container">
           <div className="fooBtn" type="primary" onClick={show}>鸣谢名单</div>
-        <a className="fooBtn" href="https://github.com/VilinkoStudio/lightframe.vertillusion.com" target="_blank" >
+        <a className="fooBtn" href="https://github.com/VilinkoStudio/lightframe.vilinko.com" target="_blank" >
           改进本页面
         </a>
         <br/>
